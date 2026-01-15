@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Safecorp Perú | Seguridad e Innovación</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e53a34",
+                        "background-light": "#ffffff",
+                        "background-dark": "#211211",
+                        "lead": "#212121",
+                        "soft-gray": "#f5f5f5",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(229, 58, 52, 0.08);
+            border-color: rgba(229, 58, 52, 0.2);
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-lead dark:text-gray-100 antialiased">
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-soft-gray dark:border-white/10">
+<div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-xl font-extrabold tracking-tighter text-lead dark:text-white uppercase">Safecorp Perú</span>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Inicio</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Servicios</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Nosotros</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Soluciones</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-primary hover:bg-red-700 text-white px-6 py-2.5 rounded-lg text-sm font-bold soft-shadow transition-all">
+                    Contactar
+                </button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-20 pb-32 lg:pt-6 lg:pb-48">
+<div class="max-w-7xl mx-auto px-6 lg:px-10">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary w-fit">
+<span class="text-xs font-bold tracking-widest uppercase">Líderes en el Mercado Peruano</span>
+</div>
+<h1 class="text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-lead dark:text-white">
+                        Innovación y <span class="text-primary">Seguridad</span> para tu Empresa
+                    </h1>
+<p class="text-lg lg:text-xl text-lead/70 dark:text-gray-400 max-w-lg leading-relaxed font-medium">
+                        Soluciones tecnológicas modernas y consultoría corporativa de alto impacto. Redefiniendo el estándar de protección empresarial.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary hover:bg-red-700 text-white px-8 py-4 rounded-lg text-base font-bold soft-shadow flex items-center gap-2 transition-all">
+                            Ver Soluciones
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-soft-gray dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-lead dark:text-white px-8 py-4 rounded-lg text-base font-bold transition-all">
+                            Solicitar Auditoría
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square bg-center bg-cover rounded-2xl soft-shadow" data-alt="Modern server room with red fiber optic cables" style='background-image: url("logo.png");'>
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-10 -left-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Bar -->
+<section class="bg-soft-gray dark:bg-white/5 py-12">
+<div class="max-w-7xl mx-auto px-6 lg:px-10">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="flex flex-col gap-1">
+<span class="text-4xl font-black text-primary tracking-tighter">15+</span>
+<span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Años de Exp.</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-4xl font-black text-primary tracking-tighter">500+</span>
+<span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Proyectos</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-4xl font-black text-primary tracking-tighter">40+</span>
+<span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Especialistas</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-4xl font-black text-primary tracking-tighter">100%</span>
+<span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Satisfacción</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-32">
+<div class="max-w-7xl mx-auto px-6 lg:px-10">
+<div class="flex flex-col gap-4 mb-20 text-center items-center">
+<h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight text-lead dark:text-white">Nuestros Servicios Especializados</h2>
+<div class="h-1.5 w-20 bg-primary rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group bg-white dark:bg-white/5 border border-soft-gray dark:border-white/10 p-10 rounded-xl transition-all card-hover flex flex-col gap-6">
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-all group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">shield_locked</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-xl font-bold text-lead dark:text-white">Seguridad Tecnológica</h3>
+<p class="text-lead/60 dark:text-gray-400 leading-relaxed font-medium">
+                            Protección avanzada con infraestructura de última generación diseñada para entornos corporativos dinámicos.
+                        </p>
+</div>
+<a class="mt-auto text-primary text-sm font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                        Saber más <span class="material-symbols-outlined text-lg">chevron_right</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white dark:bg-white/5 border border-soft-gray dark:border-white/10 p-10 rounded-xl transition-all card-hover flex flex-col gap-6">
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-all group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">analytics</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-xl font-bold text-lead dark:text-white">Consultoría de Riesgo</h3>
+<p class="text-lead/60 dark:text-gray-400 leading-relaxed font-medium">
+                            Análisis profundo y mitigación proactiva de amenazas. Protegemos lo que más importa: tu continuidad.
+                        </p>
+</div>
+<a class="mt-auto text-primary text-sm font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                        Saber más <span class="material-symbols-outlined text-lg">chevron_right</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white dark:bg-white/5 border border-soft-gray dark:border-white/10 p-10 rounded-xl transition-all card-hover flex flex-col gap-6">
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-all group-hover:bg-primary group-hover:text-white">
+<span class="material-symbols-outlined text-3xl">corporate_fare</span>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-xl font-bold text-lead dark:text-white">Gestión Corporativa</h3>
+<p class="text-lead/60 dark:text-gray-400 leading-relaxed font-medium">
+                            Optimización de procesos internos para máxima eficiencia operativa. Innovación aplicada al negocio.
+                        </p>
+</div>
+<a class="mt-auto text-primary text-sm font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                        Saber más <span class="material-symbols-outlined text-lg">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Image Text Section (About Us) -->
+<section class="py-32 bg-soft-gray dark:bg-white/5">
+<div class="max-w-7xl mx-auto px-6 lg:px-10">
+<div class="grid lg:grid-cols-2 gap-20 items-center">
+<div class="order-2 lg:order-1 relative">
+<div class="aspect-video bg-center bg-cover rounded-xl soft-shadow" data-alt="High-end modern architectural skyscraper in black and white" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBBoEvQQ4AQjq7QBvg_fJZ-a3kwPDgvkowZdL3UWxSu0AOUT4YQAOfXk7q5LPZ3mt7vNjC6ZuyZJL259AuubZz7fZH8iTctxdDENYpFxuj3pyel5uf5PJS0mTYxnLgFA1is00aNJrmqHWMQeKn9yoikPI-FWayZOL-W9jeTEKRYOnoYWST2rKOT43K0pSs1xmsSPmWyKGc_eH2bXG-7kkO2MlxQtEhabJn9cSFhycIUSAM7zWg-mMLQiATRW8WHOOFIuOxt0AGb6oU");'>
+</div>
+<div class="absolute -top-6 -right-6 w-32 h-32 bg-primary flex items-center justify-center rounded-xl soft-shadow">
+<span class="text-white text-center font-black leading-tight">ISO<br/>9001</span>
+</div>
+</div>
+<div class="order-1 lg:order-2 flex flex-col gap-8">
+<h2 class="text-4xl font-extrabold text-lead dark:text-white tracking-tight">Comprometidos con la excelencia y el futuro tecnológico de Perú.</h2>
+<p class="text-lg text-lead/70 dark:text-gray-400 leading-relaxed font-medium">
+                        Desde hace más de una década, SAFECORP PERÚ ha liderado la transformación de la seguridad corporativa. No solo protegemos activos, habilitamos el crecimiento sostenible mediante el uso inteligente de la tecnología.
+                    </p>
+<ul class="flex flex-col gap-4">
+<li class="flex items-center gap-3 text-lead dark:text-white font-bold">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                            Metodologías Ágiles de Protección
+                        </li>
+<li class="flex items-center gap-3 text-lead dark:text-white font-bold">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                            Respuesta Inmediata 24/7
+                        </li>
+<li class="flex items-center gap-3 text-lead dark:text-white font-bold">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                            Talento Humano Altamente Calificado
+                        </li>
+</ul>
+<button class="w-fit border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg font-bold transition-all">
+                        Nuestra Historia
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-lead text-white py-20">
+<div class="max-w-7xl mx-auto px-6 lg:px-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-xl font-extrabold tracking-tighter uppercase">Safecorp Perú</span>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                        Liderando el futuro de la seguridad corporativa en el mercado peruano a través de la innovación continua.
+                    </p>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="font-black text-sm uppercase tracking-widest text-primary">Navegación</h4>
+<ul class="flex flex-col gap-3 text-sm text-gray-400 font-medium">
+<li><a class="hover:text-white transition-colors" href="#">Inicio</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Servicios</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Casos de Éxito</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Blog Corporativo</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="font-black text-sm uppercase tracking-widest text-primary">Legal</h4>
+<ul class="flex flex-col gap-3 text-sm text-gray-400 font-medium">
+<li><a class="hover:text-white transition-colors" href="#">Términos y Condiciones</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Política de Privacidad</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Cumplimiento Ético</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="font-black text-sm uppercase tracking-widest text-primary">Contacto</h4>
+<ul class="flex flex-col gap-4 text-sm text-gray-400 font-medium">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">location_on</span>
+                            Av. Canaval y Moreyra, San Isidro, Lima
+                        </li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">call</span>
+                            +51 1 555-0123
+                        </li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">mail</span>
+                            contacto@safecorp.pe
+                        </li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-gray-500 font-bold uppercase tracking-widest">
+                    © 2024 SAFECORP PERÚ. Todos los derechos reservados.
+                </p>
+<div class="flex gap-6">
+<a class="text-gray-500 hover:text-white transition-all" href="#">
+<span class="sr-only">LinkedIn</span>
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
