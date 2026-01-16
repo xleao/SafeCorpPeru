@@ -14,7 +14,7 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#e53a34",
+                        "primary": "#ef5350",
                         "background-light": "#ffffff",
                         "background-dark": "#211211",
                         "lead": "#212121",
@@ -52,26 +52,28 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-lead dark:text-gray-100 antialiased">
 <!-- Navigation -->
-<nav class="sticky top-0 z-50 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-soft-gray dark:border-white/10">
+<nav class="sticky top-0 z-50 w-full bg-red-50/20 dark:bg-red-800/10 backdrop-blur-md border-b border-red-100/40 dark:border-red-800/10 shadow-sm">
 <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
 <div class="flex items-center gap-3">
-<div class="text-primary">
-<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
+    <img src="logo.png" alt="Safecorp logo" class="h-10 w-auto" />
+    <span class="text-xl font-black tracking-tighter text-black dark:text-white uppercase">
+        <span class="font-black">SAFE</span><span class="font-black dark:font-bold">CORP</span> PERÚ
+    </span>
 </div>
-<span class="text-xl font-extrabold tracking-tighter text-lead dark:text-white uppercase">Safecorp Perú</span>
-</div>
-<div class="hidden md:flex items-center gap-10">
-<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Inicio</a>
-<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Servicios</a>
-<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Nosotros</a>
-<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Soluciones</a>
-<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Blog</a>
+<div class="hidden md:flex items-center gap-8">
+<a href="#" class="text-black hover:text-gray-800 dark:text-white dark:hover:text-gray-200 font-bold transition-colors border-b-2 border-transparent hover:border-black px-1 pb-1">Inicio</a>
+<a href="#" class="text-black hover:text-gray-800 dark:text-white dark:hover:text-gray-200 font-bold transition-colors border-b-2 border-transparent hover:border-black px-1 pb-1">Servicios</a>
+<a href="#" class="text-black hover:text-gray-800 dark:text-white dark:hover:text-gray-200 font-bold transition-colors border-b-2 border-transparent hover:border-black px-1 pb-1">Nosotros</a>
+<a class="text-sm font-bold text-black hover:text-gray-800 dark:text-white dark:hover:text-gray-200 transition-colors" href="#">Soluciones</a>
+<a class="text-sm font-bold text-black hover:text-gray-800 dark:text-white dark:hover:text-gray-200 transition-colors" href="#">Blog</a>
 </div>
 <div class="flex items-center gap-6">
-<button class="bg-primary hover:bg-red-700 text-white px-6 py-2.5 rounded-lg text-sm font-bold soft-shadow transition-all">
-                    Contactar
+<button class="group relative bg-gradient-to-r from-red-400 to-red-500 hover:from-red-500 hover:to-red-600 text-white px-6 py-2.5 rounded-lg font-bold transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-red-200/20">
+                    <span class="relative z-10 flex items-center gap-2">
+                        <span>Contáctanos</span>
+                        <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </span>
+                    <span class="absolute inset-0 bg-gradient-to-r from-red-300/0 via-white/10 to-red-300/0 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 </button>
 </div>
 </div>
@@ -81,17 +83,17 @@
 <div class="max-w-7xl mx-auto px-6 lg:px-10">
 <div class="grid lg:grid-cols-2 gap-16 items-center">
 <div class="flex flex-col gap-8">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary w-fit">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 text-primary w-fit">
 <span class="text-xs font-bold tracking-widest uppercase">Líderes en el Mercado Peruano</span>
 </div>
 <h1 class="text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-lead dark:text-white">
                         Innovación y <span class="text-primary">Seguridad</span> para tu Empresa
                     </h1>
-<p class="text-lg lg:text-xl text-lead/70 dark:text-gray-400 max-w-lg leading-relaxed font-medium">
+<p class="text-lg lg:text-xl text-lead/70 dark:text-gray-400 max-w-lg leading-relaxed font-bold">
                         Soluciones tecnológicas modernas y consultoría corporativa de alto impacto. Redefiniendo el estándar de protección empresarial.
                     </p>
 <div class="flex flex-wrap gap-4 pt-4">
-<button class="bg-primary hover:bg-red-700 text-white px-8 py-4 rounded-lg text-base font-bold soft-shadow flex items-center gap-2 transition-all">
+<button class="bg-primary hover:bg-red-600 text-white px-8 py-4 rounded-lg text-base font-bold soft-shadow flex items-center gap-2 transition-all">
                             Ver Soluciones
                             <span class="material-symbols-outlined">arrow_forward</span>
 </button>
@@ -101,10 +103,10 @@
 </div>
 </div>
 <div class="relative">
-<div class="aspect-square bg-center bg-cover rounded-2xl soft-shadow" data-alt="Modern server room with red fiber optic cables" style='background-image: url("logo.png");'>
+<div class="aspect-square bg-center bg-cover rounded-2xl soft-shadow" data-alt="Modern server room with red fiber optic cables" style='background-image: url("imagen1.png");'>
 </div>
 <!-- Decorative element -->
-<div class="absolute -bottom-10 -left-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+<div class="absolute -bottom-40 -left-40 w-[40rem] h-[40rem] bg-gradient-to-tr from-primary/10 to-red-400/5 rounded-full blur-3xl -z-10"></div>
 </div>
 </div>
 </div>
@@ -112,116 +114,410 @@
 <!-- Stats Bar -->
 <section class="bg-soft-gray dark:bg-white/5 py-12">
 <div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="flex flex-col gap-1">
-<span class="text-4xl font-black text-primary tracking-tighter">15+</span>
-<span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Años de Exp.</span>
-</div>
-<div class="flex flex-col gap-1">
-<span class="text-4xl font-black text-primary tracking-tighter">500+</span>
-<span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Proyectos</span>
-</div>
-<div class="flex flex-col gap-1">
-<span class="text-4xl font-black text-primary tracking-tighter">40+</span>
-<span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Especialistas</span>
-</div>
-<div class="flex flex-col gap-1">
-<span class="text-4xl font-black text-primary tracking-tighter">100%</span>
-<span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Satisfacción</span>
-</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+  <div class="flex flex-col items-center gap-1">
+    <span class="text-4xl font-black text-primary tracking-tighter">10+</span>
+    <span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Años de Exp.</span>
+  </div>
+  <div class="flex flex-col items-center gap-1">
+    <span class="text-4xl font-black text-primary tracking-tighter">50+</span>
+    <span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Proyectos</span>
+  </div>
+  <div class="flex flex-col items-center gap-1">
+    <span class="text-4xl font-black text-primary tracking-tighter">100%</span>
+    <span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Satisfacción</span>
+  </div>
 </div>
 </div>
 </section>
 <!-- Services Grid -->
-<section class="py-32">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="flex flex-col gap-4 mb-20 text-center items-center">
-<h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight text-lead dark:text-white">Nuestros Servicios Especializados</h2>
-<div class="h-1.5 w-20 bg-primary rounded-full"></div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Card 1 -->
-<div class="group bg-white dark:bg-white/5 border border-soft-gray dark:border-white/10 p-10 rounded-xl transition-all card-hover flex flex-col gap-6">
-<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-all group-hover:bg-primary group-hover:text-white">
-<span class="material-symbols-outlined text-3xl">shield_locked</span>
-</div>
-<div class="flex flex-col gap-3">
-<h3 class="text-xl font-bold text-lead dark:text-white">Seguridad Tecnológica</h3>
-<p class="text-lead/60 dark:text-gray-400 leading-relaxed font-medium">
-                            Protección avanzada con infraestructura de última generación diseñada para entornos corporativos dinámicos.
-                        </p>
-</div>
-<a class="mt-auto text-primary text-sm font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
-                        Saber más <span class="material-symbols-outlined text-lg">chevron_right</span>
-</a>
-</div>
-<!-- Card 2 -->
-<div class="group bg-white dark:bg-white/5 border border-soft-gray dark:border-white/10 p-10 rounded-xl transition-all card-hover flex flex-col gap-6">
-<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-all group-hover:bg-primary group-hover:text-white">
-<span class="material-symbols-outlined text-3xl">analytics</span>
-</div>
-<div class="flex flex-col gap-3">
-<h3 class="text-xl font-bold text-lead dark:text-white">Consultoría de Riesgo</h3>
-<p class="text-lead/60 dark:text-gray-400 leading-relaxed font-medium">
-                            Análisis profundo y mitigación proactiva de amenazas. Protegemos lo que más importa: tu continuidad.
-                        </p>
-</div>
-<a class="mt-auto text-primary text-sm font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
-                        Saber más <span class="material-symbols-outlined text-lg">chevron_right</span>
-</a>
-</div>
-<!-- Card 3 -->
-<div class="group bg-white dark:bg-white/5 border border-soft-gray dark:border-white/10 p-10 rounded-xl transition-all card-hover flex flex-col gap-6">
-<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-all group-hover:bg-primary group-hover:text-white">
-<span class="material-symbols-outlined text-3xl">corporate_fare</span>
-</div>
-<div class="flex flex-col gap-3">
-<h3 class="text-xl font-bold text-lead dark:text-white">Gestión Corporativa</h3>
-<p class="text-lead/60 dark:text-gray-400 leading-relaxed font-medium">
-                            Optimización de procesos internos para máxima eficiencia operativa. Innovación aplicada al negocio.
-                        </p>
-</div>
-<a class="mt-auto text-primary text-sm font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
-                        Saber más <span class="material-symbols-outlined text-lg">chevron_right</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-<!-- Image Text Section (About Us) -->
-<section class="py-32 bg-soft-gray dark:bg-white/5">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="grid lg:grid-cols-2 gap-20 items-center">
-<div class="order-2 lg:order-1 relative">
-<div class="aspect-video bg-center bg-cover rounded-xl soft-shadow" data-alt="High-end modern architectural skyscraper in black and white" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBBoEvQQ4AQjq7QBvg_fJZ-a3kwPDgvkowZdL3UWxSu0AOUT4YQAOfXk7q5LPZ3mt7vNjC6ZuyZJL259AuubZz7fZH8iTctxdDENYpFxuj3pyel5uf5PJS0mTYxnLgFA1is00aNJrmqHWMQeKn9yoikPI-FWayZOL-W9jeTEKRYOnoYWST2rKOT43K0pSs1xmsSPmWyKGc_eH2bXG-7kkO2MlxQtEhabJn9cSFhycIUSAM7zWg-mMLQiATRW8WHOOFIuOxt0AGb6oU");'>
-</div>
-<div class="absolute -top-6 -right-6 w-32 h-32 bg-primary flex items-center justify-center rounded-xl soft-shadow">
-<span class="text-white text-center font-black leading-tight">ISO<br/>9001</span>
-</div>
-</div>
-<div class="order-1 lg:order-2 flex flex-col gap-8">
-<h2 class="text-4xl font-extrabold text-lead dark:text-white tracking-tight">Comprometidos con la excelencia y el futuro tecnológico de Perú.</h2>
-<p class="text-lg text-lead/70 dark:text-gray-400 leading-relaxed font-medium">
-                        Desde hace más de una década, SAFECORP PERÚ ha liderado la transformación de la seguridad corporativa. No solo protegemos activos, habilitamos el crecimiento sostenible mediante el uso inteligente de la tecnología.
+<section class="py-24 relative overflow-hidden">
+    <!-- Elemento decorativo rojo -->
+    <div class="absolute -top-40 -right-40 w-[50rem] h-[50rem] bg-gradient-to-br from-primary/15 to-red-300/10 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute -bottom-60 -left-40 w-[50rem] h-[50rem] bg-gradient-to-tr from-primary/10 to-red-300/10 rounded-full blur-3xl -z-10"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 relative">
+        <div class="flex flex-col gap-4 mb-16 text-center items-center">
+            <span class="inline-block bg-primary/10 text-primary px-6 py-2.5 rounded-full text-sm font-bold tracking-widest mb-2 border border-primary/20 shadow-sm shadow-primary/5">NUESTROS SERVICIOS</span>
+            <h2 class="text-4xl lg:text-5xl font-extrabold tracking-tight text-lead dark:text-white">Soluciones Integrales de <span class="text-primary">Seguridad</span></h2>
+            <div class="h-2 w-28 bg-gradient-to-r from-primary via-red-300 to-red-400 rounded-full mt-4 shadow-md shadow-primary/10"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div onclick="openModal('seguridad-modal')" class="group bg-white dark:bg-gray-900/80 border border-gray-200/60 dark:border-gray-800 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 cursor-pointer">
+                <div class="flex flex-col h-full">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">shield_locked</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Seguridad Tecnológica</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 flex-grow">
+                        <span class="text-primary font-semibold">Protección avanzada</span> con infraestructura de última generación diseñada para entornos corporativos dinámicos.
                     </p>
-<ul class="flex flex-col gap-4">
-<li class="flex items-center gap-3 text-lead dark:text-white font-bold">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-                            Metodologías Ágiles de Protección
-                        </li>
-<li class="flex items-center gap-3 text-lead dark:text-white font-bold">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-                            Respuesta Inmediata 24/7
-                        </li>
-<li class="flex items-center gap-3 text-lead dark:text-white font-bold">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-                            Talento Humano Altamente Calificado
-                        </li>
-</ul>
-<button class="w-fit border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg font-bold transition-all">
-                        Nuestra Historia
+                    <div class="w-full flex items-center justify-between text-sm font-semibold text-primary group-hover:text-red-600 transition-colors group-hover:gap-3">
+                        <span>Saber más</span>
+                        <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div onclick="openModal('riesgo-modal')" class="group bg-white dark:bg-gray-900/80 border border-gray-200/60 dark:border-gray-800 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 cursor-pointer">
+                <div class="flex flex-col h-full">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">analytics</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Consultoría de Riesgo</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 flex-grow">
+                        <span class="text-primary font-semibold">Análisis profundo</span> y mitigación proactiva de amenazas. Protegemos lo que más importa: tu continuidad.
+                    </p>
+                    <div class="w-full flex items-center justify-between text-sm font-semibold text-primary group-hover:text-red-600 transition-colors group-hover:gap-3">
+                        <span>Saber más</span>
+                        <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div onclick="openModal('gestion-modal')" class="group bg-white dark:bg-gray-900/80 border border-gray-200/60 dark:border-gray-800 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 cursor-pointer">
+                <div class="flex flex-col h-full">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-3xl">corporate_fare</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Gestion Corporativa</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 flex-grow">
+                        <span class="text-primary font-semibold">Optimización de procesos</span> internos para máxima eficiencia operativa. Innovación aplicada al negocio.
+                    </p>
+                    <div class="w-full flex items-center justify-between text-sm font-semibold text-primary group-hover:text-red-600 transition-colors group-hover:gap-3">
+                        <span>Saber más</span>
+                        <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modals -->
+            <!-- Seguridad Tecnológica Modal -->
+            <div id="seguridad-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                    <div class="relative p-8">
+                        <button onclick="closeModal('seguridad-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-red-400">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-4xl text-red-500 dark:text-red-400">shield_locked</span>
+                            </div>
+                            <a href="#" class="text-2xl font-bold text-lead dark:text-white hover:text-primary transition-colors">SAFE<span class="text-primary">CORP</span> PERÚ</a>d Tecnológica</h3>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-lead/80 dark:text-gray-300 leading-relaxed">
+                                Nuestra solución de Seguridad Tecnológica ofrece una protección integral para tus activos digitales, diseñada específicamente para entornos corporativos exigentes.
+                            </p>
+                            
+                            <div class="bg-red-50 dark:bg-red-900/5 p-6 rounded-xl border-l-4 border-red-400">
+                                <h4 class="font-bold text-red-600 dark:text-red-400 mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">security</span>
+                                    Beneficios Clave
+                                </h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Protección avanzada contra amenazas cibernéticas en tiempo real</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Monitoreo 24/7 de redes y sistemas</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Cumplimiento normativo y auditorías de seguridad</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Respuesta inmediata ante incidentes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800">
+                                <h4 class="font-bold text-lead dark:text-white mb-4">¿Listo para mejorar tu seguridad?</h4>
+                                <button class="relative overflow-hidden w-full md:w-auto bg-gradient-to-r from-primary to-red-500 hover:from-red-500 hover:to-primary text-white px-8 py-3.5 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/30 flex items-center justify-center gap-3 group">
+                        <span class="relative z-10">Empecemos</span>
+                        <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform relative z-10">arrow_forward</span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     </button>
-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Consultoría de Riesgo Modal -->
+            <div id="riesgo-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                    <div class="relative p-8">
+                        <button onclick="closeModal('riesgo-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-red-400">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-4xl text-red-500 dark:text-red-400">analytics</span>
+                            </div>
+                            <a href="#" class="text-2xl font-bold text-lead dark:text-white hover:text-primary transition-colors">SAFE<span class="text-primary">CORP</span> PERÚ</a> de Riesgo</h3>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-lead/80 dark:text-gray-300 leading-relaxed">
+                                Nuestro servicio de Consultoría de Riesgo te brinda las herramientas y estrategias necesarias para identificar, evaluar y mitigar riesgos en tu organización.
+                            </p>
+                            
+                            <div class="bg-red-50 dark:bg-red-900/5 p-6 rounded-xl border-l-4 border-red-400">
+                                <h4 class="font-bold text-red-600 dark:text-red-400 mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">insights</span>
+                                    Nuestro Enfoque
+                                </h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Análisis exhaustivo de vulnerabilidades</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Evaluación de impacto empresarial</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Desarrollo de planes de continuidad</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Capacitación y simulacros</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800">
+                                <h4 class="font-bold text-lead dark:text-white mb-4">¿Necesitas una evaluación de riesgos?</h4>
+                                <button class="relative overflow-hidden w-full md:w-auto bg-gradient-to-r from-primary to-red-500 hover:from-red-500 hover:to-primary text-white px-8 py-3.5 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/30 flex items-center justify-center gap-3 group">
+                        <span class="relative z-10">Empecemos</span>
+                        <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform relative z-10">arrow_forward</span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gestión Corporativa Modal -->
+            <div id="gestion-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                    <div class="relative p-8">
+                        <button onclick="closeModal('gestion-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-red-400">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-4xl text-red-500 dark:text-red-400">corporate_fare</span>
+                            </div>
+                            <a href="#" class="text-2xl font-bold text-lead dark:text-white hover:text-primary transition-colors">SAFE<span class="text-primary">CORP</span> PERÚ</a> Corporativa</h3>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-lead/80 dark:text-gray-300 leading-relaxed">
+                                Optimizamos tus procesos corporativos para alcanzar la máxima eficiencia operativa, impulsando la innovación y el crecimiento sostenible de tu negocio.
+                            </p>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-red-50/50 dark:bg-red-900/3 p-4 rounded-lg">
+                                    <div class="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-800/10 flex items-center justify-center text-red-500 dark:text-red-400 mb-3">
+                                        <span class="material-symbols-outlined">trending_up</span>
+                                    </div>
+                                    <h4 class="font-bold text-lead dark:text-white mb-1">Optimización</h4>
+                                    <p class="text-sm text-lead/70 dark:text-gray-400">Mejora continua de procesos internos</p>
+                                </div>
+                                <div class="bg-red-50/50 dark:bg-red-900/3 p-4 rounded-lg">
+                                    <div class="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-800/10 flex items-center justify-center text-red-500 dark:text-red-400 mb-3">
+                                        <span class="material-symbols-outlined">auto_awesome</span>
+                                    </div>
+                                    <h4 class="font-bold text-lead dark:text-white mb-1">Innovación</h4>
+                                    <p class="text-sm text-lead/70 dark:text-gray-400">Soluciones tecnológicas de vanguardia</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800">
+                                <h4 class="font-bold text-lead dark:text-white mb-4">¿Listo para transformar tu empresa?</h4>
+                                <button class="relative overflow-hidden w-full md:w-auto bg-gradient-to-r from-primary to-red-500 hover:from-red-500 hover:to-primary text-white px-8 py-3.5 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/30 flex items-center justify-center gap-3 group">
+                        <span class="relative z-10">Empecemos</span>
+                        <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform relative z-10">arrow_forward</span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Quiénes Somos -->
+<section class="py-16 bg-gradient-to-br from-white via-soft-gray/5 to-soft-gray/10 dark:from-background-dark dark:via-gray-900/40 dark:to-gray-900/60 relative overflow-hidden">
+    <!-- Elementos decorativos -->
+    <div class="absolute -top-20 -right-20 w-[500px] h-[500px] bg-gradient-to-br from-primary/20 to-red-200/80 dark:to-red-900/30 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/30 to-red-100/80 dark:to-red-900/20 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-80 bg-gradient-to-r from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/5 rounded-full blur-3xl -z-20"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 relative">
+        <div class="text-center mb-16">
+            <span class="inline-block bg-primary/5 text-primary px-6 py-2 rounded-full text-sm font-bold tracking-widest mb-6 border border-primary/20">NUESTRA EMPRESA</span>
+            <h2 class="text-5xl md:text-6xl font-extrabold text-lead dark:text-white tracking-tight">Quiénes Somos</h2>
+            <div class="h-1.5 w-24 bg-primary rounded-full mx-auto mt-6"></div>
+        </div>
+        
+        <!-- Sección Acerca de Nosotros -->
+        <div class="grid lg:grid-cols-2 gap-16 items-center mb-32">
+            <div class="order-2 lg:order-1 space-y-8">
+                <div class="bg-white/90 dark:bg-gray-900/70 p-8 rounded-2xl shadow-lg border border-red-50/40 dark:border-white/5 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 relative overflow-hidden group backdrop-blur-sm">
+                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-primary/3 rounded-full group-hover:bg-primary/5 transition-all duration-500"></div>
+                    <h3 class="text-3xl font-bold text-lead dark:text-white mb-6 relative pl-4 border-l-4 border-primary">
+                        Acerca de Nosotros
+                    </h3>
+                    <div class="space-y-6">
+                        <p class="text-lg text-lead/80 dark:text-gray-300 leading-relaxed">
+                            <span class="text-primary font-bold">SAFECORP</span> es una empresa con más de <span class="text-primary font-bold">10 años de experiencia</span> en la comercialización de productos y capacitaciones en seguridad industrial. 
+                        </p>
+                        <p class="text-lg text-lead/80 dark:text-gray-300 leading-relaxed">
+                            Nuestro principal objetivo es ofrecer productos vanguardistas de la mejor calidad, de marcas líderes y certificados por organismos nacionales e internacionales, asegurando así la <span class="font-bold">integridad física de los usuarios</span> de nuestros productos.
+                        </p>
+                        <div class="bg-gradient-to-r from-primary/10 to-white/30 dark:from-primary/20 dark:to-white/5 p-6 rounded-lg border-l-4 border-primary shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm">
+                            <p class="text-lead dark:text-gray-200 italic">
+                                "Comprometidos con el cumplimiento de todas las exigencias legales y normativas del sector."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid sm:grid-cols-2 gap-6 relative z-10">
+                    <div class="bg-white/90 dark:bg-gray-900/60 p-6 rounded-xl border border-red-100/40 dark:border-white/5 hover:border-primary/30 hover:shadow-md transition-all duration-300 group backdrop-blur-sm">
+                        <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center text-primary mb-4">
+                            <span class="material-symbols-outlined text-2xl">groups</span>
+                        </div>
+                        <h4 class="font-bold text-lead dark:text-white mb-2">Equipo Especializado</h4>
+                        <p class="text-sm text-lead/70 dark:text-gray-400">Profesionales altamente calificados en seguridad industrial.</p>
+                    </div>
+                    <div class="bg-white/90 dark:bg-gray-900/60 p-6 rounded-xl border border-red-100/40 dark:border-white/5 hover:border-primary/30 hover:shadow-md transition-all duration-300 group backdrop-blur-sm">
+                        <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center text-primary mb-4">
+                            <span class="material-symbols-outlined text-2xl">verified_user</span>
+                        </div>
+                        <h4 class="font-bold text-lead dark:text-white mb-2">Certificaciones</h4>
+                        <p class="text-sm text-lead/70 dark:text-gray-400">Productos avalados por estándares internacionales.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="order-1 lg:order-2 relative -mt-8">
+                <!-- Galería de Imágenes -->
+                <div class="grid grid-cols-2 gap-2 mb-2">
+                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5" style='background-image: url("imagen2.png")'></div>
+                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5" style='background-image: url("imagen3.png")'></div>
+                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5" style='background-image: url("imagen4.png")'></div>
+                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5" style='background-image: url("imagen5.png")'></div>
+                </div>
+                
+                <!-- Imagen Principal -->
+                <div class="relative">
+                    <div class="aspect-video bg-center bg-cover rounded-2xl shadow-lg transform rotate-1 hover:rotate-0 transition-all duration-500" style='background-image: url("imagen2.png"); min-height: 280px;'></div>
+                    <div class="absolute -bottom-6 -right-6 w-36 h-36 bg-gradient-to-br from-primary to-red-400 flex flex-col items-center justify-center rounded-xl shadow-lg p-4 text-center z-10">
+                        <span class="text-4xl font-black text-white">10+</span>
+                        <span class="text-white font-bold text-sm leading-tight">Años de Experiencia</span>
+                        <div class="w-12 h-1 bg-white/70 rounded-full my-2"></div>
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-white to-red-50 dark:from-gray-900 dark:to-red-900/30 rounded-xl shadow-lg flex items-center justify-center z-10 border-2 border-red-100 dark:border-red-900/10">
+                        <span class="text-primary text-4xl font-black">50+</span>
+                    </div>
+                    <!-- Elemento decorativo rojo -->
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nuestro Compromiso -->
+        <div class="bg-gradient-to-r from-primary/5 via-red-50/20 to-primary/5 dark:from-red-900/10 dark:via-red-900/5 dark:to-red-900/10 rounded-3xl p-10 mb-24 border border-red-100/40 dark:border-red-900/15 relative overflow-hidden">
+            <!-- Elemento decorativo -->
+            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/3 rounded-full blur-3xl -z-10"></div>
+            <div class="max-w-3xl mx-auto text-center">
+                <h3 class="text-3xl font-bold text-lead dark:text-white mb-6">Nuestro Compromiso</h3>
+                <p class="text-xl text-lead/80 dark:text-gray-300 leading-relaxed mb-8">
+                    En SAFECORP ofrecemos un servicio personalizado de primera calidad, con soluciones integrales adaptadas a cada necesidad, asegurando la máxima satisfacción de nuestros clientes.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="flex items-center gap-2 bg-white dark:bg-white/5 px-4 py-2 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-primary"></span>
+                        <span class="text-sm font-bold">Capacitación Continua</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white dark:bg-white/5 px-4 py-2 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-primary"></span>
+                        <span class="text-sm font-bold">Soporte 24/7</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white dark:bg-white/5 px-4 py-2 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-primary"></span>
+                        <span class="text-sm font-bold">Soluciones a Medida</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visión, Misión y Valores -->
+        <div class="mb-20">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-primary/5 text-primary px-4 py-1.5 rounded-full text-sm font-bold tracking-widest mb-4">NUESTROS PILARES</span>
+                <h2 class="text-4xl font-extrabold text-lead dark:text-white tracking-tight">Visión, Misión y Valores</h2>
+                <div class="h-1.5 w-20 bg-primary rounded-full mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Visión -->
+                <div class="group bg-white dark:bg-white/5 p-8 rounded-2xl shadow-lg border border-soft-gray/50 dark:border-white/10 hover:border-primary/20 dark:hover:border-primary/30 transition-all">
+                    <div class="w-20 h-20 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-4xl">visibility</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-lead dark:text-white mb-4">Visión</h3>
+                    <p class="text-lead/70 dark:text-gray-400 leading-relaxed">
+                        Ser una empresa líder en la comercialización de productos y capacitaciones en seguridad industrial y salud ocupacional, generando soluciones de valor compartido con nuestros clientes.
+                    </p>
+                </div>
+
+                <!-- Misión -->
+                <div class="group bg-white dark:bg-white/5 p-8 rounded-2xl shadow-lg border border-soft-gray/50 dark:border-white/10 hover:border-primary/20 dark:hover:border-primary/30 transition-all">
+                    <div class="w-20 h-20 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-4xl">target</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-lead dark:text-white mb-4">Misión</h3>
+                    <p class="text-lead/70 dark:text-gray-400 leading-relaxed">
+                        Comercializar productos y brindar capacitaciones en seguridad industrial, buscando la máxima satisfacción de nuestros clientes mediante prácticas innovadoras y valor agregado constante.
+                    </p>
+                </div>
+
+                <!-- Valores -->
+                <div class="group bg-white dark:bg-white/5 p-8 rounded-2xl shadow-lg border border-soft-gray/50 dark:border-white/10 hover:border-primary/20 dark:hover:border-primary/30 transition-all">
+                    <div class="w-20 h-20 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-4xl">diversity_3</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-lead dark:text-white mb-4">Valores</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2">
+                            <span class="text-primary mt-1">•</span>
+                            <span class="text-lead/70 dark:text-gray-400"><span class="font-bold">Ética:</span> Actuamos con honestidad y transparencia.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-primary mt-1">•</span>
+                            <span class="text-lead/70 dark:text-gray-400"><span class="font-bold">Compromiso:</span> Atendemos con puntualidad y orden.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-primary mt-1">•</span>
+                            <span class="text-lead/70 dark:text-gray-400"><span class="font-bold">Calidad:</span> Productos superiores, clientes satisfechos.</span>
+                        </li>
+                    </ul>
+                </div>
 </div>
 </div>
 </section>
@@ -244,7 +540,7 @@
 </div>
 <div class="flex flex-col gap-6">
 <h4 class="font-black text-sm uppercase tracking-widest text-primary">Navegación</h4>
-<ul class="flex flex-col gap-3 text-sm text-gray-400 font-medium">
+<ul class="flex flex-col gap-3 text-sm text-gray-400 font-bold">
 <li><a class="hover:text-white transition-colors" href="#">Inicio</a></li>
 <li><a class="hover:text-white transition-colors" href="#">Servicios</a></li>
 <li><a class="hover:text-white transition-colors" href="#">Casos de Éxito</a></li>
@@ -253,7 +549,7 @@
 </div>
 <div class="flex flex-col gap-6">
 <h4 class="font-black text-sm uppercase tracking-widest text-primary">Legal</h4>
-<ul class="flex flex-col gap-3 text-sm text-gray-400 font-medium">
+<ul class="flex flex-col gap-3 text-sm text-gray-400 font-bold">
 <li><a class="hover:text-white transition-colors" href="#">Términos y Condiciones</a></li>
 <li><a class="hover:text-white transition-colors" href="#">Política de Privacidad</a></li>
 <li><a class="hover:text-white transition-colors" href="#">Cumplimiento Ético</a></li>
@@ -261,7 +557,7 @@
 </div>
 <div class="flex flex-col gap-6">
 <h4 class="font-black text-sm uppercase tracking-widest text-primary">Contacto</h4>
-<ul class="flex flex-col gap-4 text-sm text-gray-400 font-medium">
+<ul class="flex flex-col gap-4 text-sm text-gray-400 font-bold">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-primary text-xl">location_on</span>
                             Av. Canaval y Moreyra, San Isidro, Lima
@@ -279,7 +575,7 @@
 </div>
 <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
 <p class="text-xs text-gray-500 font-bold uppercase tracking-widest">
-                    © 2024 SAFECORP PERÚ. Todos los derechos reservados.
+                    &copy; 2024 SAFECORP PERÚ. Todos los derechos reservados.
                 </p>
 <div class="flex gap-6">
 <a class="text-gray-500 hover:text-white transition-all" href="#">
@@ -290,4 +586,36 @@
 </div>
 </div>
 </footer>
+    <script>
+        // Función para abrir el modal
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Evitar scroll del fondo
+        }
+        
+        // Función para cerrar el modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        }
+        
+        // Cerrar al hacer clic fuera del contenido del modal
+        window.onclick = function(event) {
+            if (event.target.classList.contains('bg-black/70')) {
+                event.target.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Cerrar con tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('[id$="-modal"]').forEach(modal => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+    </script>
 </body></html>
+
