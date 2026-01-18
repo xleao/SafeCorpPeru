@@ -1,0 +1,869 @@
+﻿<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Safecorp Perú | Seguridad e Innovación</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ef5350",
+                        "background-light": "#ffffff",
+                        "background-dark": "#211211",
+                        "lead": "#212121",
+                        "soft-gray": "#f5f5f5",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(229, 58, 52, 0.08);
+            border-color: rgba(229, 58, 52, 0.2);
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        
+        /* Estilos para el splash screen */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        #splash-logo {
+            width: 180px;  /* Tamaño más grande para móviles */
+            height: auto;
+            animation: pulse 1.5s infinite;
+            transition: transform 0.3s ease;
+        }
+        
+        @media (min-width: 768px) {
+            #splash-logo {
+                width: 250px;  /* Tamaño más grande para escritorio */
+            }
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.3; transform: scale(0.9); }
+        }
+        
+        /* Asegurar que el contenido principal esté oculto inicialmente */
+        body > *:not(#splash-screen) {
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        
+        body.loaded > *:not(#splash-screen) {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-lead dark:text-gray-100 antialiased overflow-x-hidden">
+<!-- Splash Screen -->
+<div id="splash-screen">
+    <img src="logo.png" alt="Safecorp Logo" id="splash-logo">
+</div>
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 w-full bg-red-50/20 dark:bg-red-800/10 backdrop-blur-md border-b border-red-100/40 dark:border-red-800/10 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-[60px] sm:h-[76px] flex items-center justify-between">
+<div class="flex items-center gap-1 sm:gap-3 whitespace-nowrap">
+    <button id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden p-2 bg-transparent text-black dark:text-white transition-opacity focus:outline-none focus-visible:outline-none shrink-0" aria-label="Abrir menú">
+        <span class="material-symbols-outlined text-2xl leading-none">menu</span>
+    </button>
+    <img src="logo.png" alt="Safecorp logo" class="h-7 sm:h-10 w-auto" />
+    <span class="text-sm sm:text-xl font-black tracking-tighter text-black dark:text-white uppercase leading-tight whitespace-nowrap shrink-0">
+        <span class="font-black">SAFECORP</span><span class="hidden sm:inline">&nbsp;PERÚ</span>
+    </span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a href="home.html" class="text-black hover:text-gray-800 dark:text-white dark:hover:text-gray-200 font-bold transition-colors border-b-2 border-black dark:border-white px-1 pb-1">Inicio</a>
+<a href="catalogo.html" class="text-black hover:text-gray-800 dark:text-white dark:hover:text-gray-200 font-bold transition-colors border-b-2 border-transparent hover:border-black px-1 pb-1">Productos y Servicios</a>
+<a href="compromisos.html" class="text-black hover:text-gray-800 dark:text-white dark:hover:text-gray-200 font-bold transition-colors border-b-2 border-transparent hover:border-black px-1 pb-1">Compromisos</a>
+</div>
+<div class="flex items-center gap-3">
+    <!-- Mobile compact CTA -->
+    <a href="contacto.html" class="inline-flex sm:hidden bg-primary hover:bg-red-600 text-white px-3 py-3 rounded-md font-bold text-[11px] transition-colors shadow-sm ml-[46px]">
+        <span class="flex items-center gap-1">
+            <span>Contáctanos</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </span>
+    </a>
+    <!-- Desktop/tablet CTA -->
+    <a href="contacto.html" class="hidden sm:inline-flex group relative bg-gradient-to-r from-red-400 to-red-500 hover:from-red-500 hover:to-red-600 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-bold text-xs sm:text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-red-200/20">
+        <span class="relative z-10 flex items-center gap-2">
+            <span>Contáctanos</span>
+            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+        </span>
+        <span class="absolute inset-0 bg-gradient-to-r from-red-300/0 via-white/10 to-red-300/0 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+    </a>
+    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+        <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+    </button>
+</div>
+</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="md:hidden hidden fixed top-16 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur border-b border-red-100/40 dark:border-red-800/10 shadow-lg">
+    <div class="px-4 py-3 flex flex-col items-center gap-2">
+        <a href="home.html" class="w-full text-center px-2 py-2 rounded-md text-black dark:text-white font-bold hover:bg-gray-100 dark:hover:bg-gray-800">Inicio</a>
+        <a href="catalogo.html" class="w-full text-center px-2 py-2 rounded-md text-black dark:text-white font-bold hover:bg-gray-100 dark:hover:bg-gray-800">Productos y Servicios</a>
+        <a href="compromisos.html" class="w-full text-center px-2 py-2 rounded-md text-black dark:text-white font-bold hover:bg-gray-100 dark:hover:bg-gray-800">Compromisos</a>
+    </div>
+</div>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-16 pb-24 sm:pt-20 sm:pb-32 lg:pt-6 lg:pb-48">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 text-primary w-fit">
+<span class="text-xs font-bold tracking-widest uppercase">Líderes en el Mercado Peruano</span>
+</div>
+<h1 class="text-3xl sm:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-lead dark:text-white">
+                        Innovación y <span class="text-primary">Seguridad</span> para tu Empresa
+                    </h1>
+<p class="text-base sm:text-lg lg:text-xl text-lead/70 dark:text-gray-400 max-w-lg leading-relaxed font-bold">
+                        Soluciones tecnológicas modernas y consultoría corporativa de alto impacto. Redefiniendo el estándar de protección empresarial.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a href="catalogo.html#nuestros-productos" class="bg-primary hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-bold soft-shadow flex items-center gap-2 transition-all">
+                            Ver Soluciones
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+<a href="contacto.html" class="bg-soft-gray dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-lead dark:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-bold transition-all inline-flex items-center">
+                            Solicitar Auditoría
+                        </a>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square bg-center bg-cover rounded-2xl soft-shadow" data-alt="Modern server room with red fiber optic cables" style='background-image: url("imagen1.png");'>
+</div>
+<!-- Decorative element -->
+<div class="absolute -bottom-40 -left-20 sm:-left-40 w-72 h-72 sm:w-[40rem] sm:h-[40rem] bg-gradient-to-tr from-primary/10 to-red-400/5 rounded-full blur-3xl -z-10"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Bar -->
+<section class="bg-soft-gray dark:bg-white/5 py-12">
+<div class="max-w-7xl mx-auto px-6 lg:px-10">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+  <div class="flex flex-col items-center gap-1">
+    <span class="text-4xl font-black text-primary tracking-tighter">10+</span>
+    <span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Años de Exp.</span>
+  </div>
+  <div class="flex flex-col items-center gap-1">
+    <span class="text-4xl font-black text-primary tracking-tighter">50+</span>
+    <span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Proyectos</span>
+  </div>
+  <div class="flex flex-col items-center gap-1">
+    <span class="text-4xl font-black text-primary tracking-tighter">100%</span>
+    <span class="text-sm font-bold text-lead/50 dark:text-gray-400 uppercase tracking-widest">Satisfacción</span>
+  </div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-16 sm:py-24 relative overflow-hidden">
+    <!-- Elemento decorativo rojo -->
+    <div class="absolute -top-40 -right-40 w-80 h-80 sm:w-[50rem] sm:h-[50rem] bg-gradient-to-br from-primary/15 to-red-300/10 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute -bottom-60 -left-40 w-80 h-80 sm:w-[50rem] sm:h-[50rem] bg-gradient-to-tr from-primary/10 to-red-300/10 rounded-full blur-3xl -z-10"></div>
+    
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-10 relative">
+        <div class="flex flex-col gap-2 sm:gap-4 mb-8 sm:mb-16 text-center items-center">
+            <span class="inline-block bg-primary/10 text-primary text-[11px] sm:text-sm px-3 sm:px-6 py-1 sm:py-2.5 rounded-full font-bold tracking-widest mb-0.5 sm:mb-2 border border-primary/20 shadow-sm shadow-primary/5">NUESTROS SERVICIOS</span>
+            <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-lead dark:text-white px-1 sm:px-2">Soluciones Integrales de <span class="text-primary">Seguridad</span></h2>
+            <div class="h-1 sm:h-2 w-16 sm:w-28 bg-gradient-to-r from-primary via-red-300 to-red-400 rounded-full mt-1 sm:mt-4 shadow-md shadow-primary/10"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <!-- Card 1 -->
+            <div onclick="openModal('seguridad-modal')" class="group bg-white dark:bg-gray-900/80 border border-gray-200/60 dark:border-gray-800 p-3 sm:p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 cursor-pointer">
+                <div class="flex flex-col h-full">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary mb-2 sm:mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-xl sm:text-3xl">shield_locked</span>
+                    </div>
+                    <h3 class="text-base sm:text-xl font-bold text-gray-900 dark:text-white mb-1.5 sm:mb-3">Seguridad Tecnológica</h3>
+                    <p class="text-xs sm:text-base text-gray-600 dark:text-gray-300 mb-3 sm:mb-6 flex-grow leading-relaxed">
+                        <span class="text-primary font-semibold">Protección avanzada</span> con infraestructura de última generación diseñada para entornos corporativos dinámicos.
+                    </p>
+                    <div class="w-full flex items-center justify-between text-xs sm:text-sm font-semibold text-primary group-hover:text-red-600 transition-colors group-hover:gap-3">
+                        <span>Saber más</span>
+                        <span class="material-symbols-outlined text-base sm:text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div onclick="openModal('riesgo-modal')" class="group bg-white dark:bg-gray-900/80 border border-gray-200/60 dark:border-gray-800 p-3 sm:p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 cursor-pointer">
+                <div class="flex flex-col h-full">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary mb-2 sm:mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-xl sm:text-3xl">analytics</span>
+                    </div>
+                    <h3 class="text-base sm:text-xl font-bold text-gray-900 dark:text-white mb-1.5 sm:mb-3">Consultoría de Riesgo</h3>
+                    <p class="text-xs sm:text-base text-gray-600 dark:text-gray-300 mb-3 sm:mb-6 flex-grow leading-relaxed">
+                        <span class="text-primary font-semibold">Análisis profundo</span> y mitigación proactiva de amenazas. Protegemos lo que más importa: tu continuidad.
+                    </p>
+                    <div class="w-full flex items-center justify-between text-xs sm:text-sm font-semibold text-primary group-hover:text-red-600 transition-colors group-hover:gap-3">
+                        <span>Saber más</span>
+                        <span class="material-symbols-outlined text-base sm:text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div onclick="openModal('gestion-modal')" class="group bg-white dark:bg-gray-900/80 border border-gray-200/60 dark:border-gray-800 p-3 sm:p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 cursor-pointer">
+                <div class="flex flex-col h-full">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary mb-2 sm:mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span class="material-symbols-outlined text-xl sm:text-3xl">corporate_fare</span>
+                    </div>
+                    <h3 class="text-base sm:text-xl font-bold text-gray-900 dark:text-white mb-1.5 sm:mb-3">Gestion Corporativa</h3>
+                    <p class="text-xs sm:text-base text-gray-600 dark:text-gray-300 mb-3 sm:mb-6 flex-grow leading-relaxed">
+                        <span class="text-primary font-semibold">Optimización de procesos</span> internos para máxima eficiencia operativa. Innovación aplicada al negocio.
+                    </p>
+                    <div class="w-full flex items-center justify-between text-xs sm:text-sm font-semibold text-primary group-hover:text-red-600 transition-colors group-hover:gap-3">
+                        <span>Saber más</span>
+                        <span class="material-symbols-outlined text-base sm:text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modals -->
+            <!-- Seguridad Tecnológica Modal -->
+            <div id="seguridad-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                    <div class="relative p-8">
+                        <button onclick="closeModal('seguridad-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-red-400">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-4xl text-red-500 dark:text-red-400">shield_locked</span>
+                            </div>
+                            <a href="#" class="text-2xl font-bold text-lead dark:text-white hover:text-primary transition-colors">SAFE<span class="text-primary">CORP</span> PERÚ</a>d Tecnológica</h3>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-lead/80 dark:text-gray-300 leading-relaxed">
+                                Nuestra solución de Seguridad Tecnológica ofrece una protección integral para tus activos digitales, diseñada específicamente para entornos corporativos exigentes.
+                            </p>
+                            
+                            <div class="bg-red-50 dark:bg-red-900/5 p-6 rounded-xl border-l-4 border-red-400">
+                                <h4 class="font-bold text-red-600 dark:text-red-400 mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">security</span>
+                                    Beneficios Clave
+                                </h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Protección avanzada contra amenazas cibernéticas en tiempo real</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Monitoreo 24/7 de redes y sistemas</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Cumplimiento normativo y auditorías de seguridad</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Respuesta inmediata ante incidentes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800">
+                                <h4 class="font-bold text-lead dark:text-white mb-4">¿Listo para mejorar tu seguridad?</h4>
+                                <button class="relative overflow-hidden w-full md:w-auto bg-gradient-to-r from-primary to-red-500 hover:from-red-500 hover:to-primary text-white px-8 py-3.5 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/30 flex items-center justify-center gap-3 group">
+                        <span class="relative z-10">Empecemos</span>
+                        <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform relative z-10">arrow_forward</span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Consultoría de Riesgo Modal -->
+            <div id="riesgo-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                    <div class="relative p-8">
+                        <button onclick="closeModal('riesgo-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-red-400">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-4xl text-red-500 dark:text-red-400">analytics</span>
+                            </div>
+                            <a href="#" class="text-2xl font-bold text-lead dark:text-white hover:text-primary transition-colors">SAFE<span class="text-primary">CORP</span> PERÚ</a> de Riesgo</h3>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-lead/80 dark:text-gray-300 leading-relaxed">
+                                Nuestro servicio de Consultoría de Riesgo te brinda las herramientas y estrategias necesarias para identificar, evaluar y mitigar riesgos en tu organización.
+                            </p>
+                            
+                            <div class="bg-red-50 dark:bg-red-900/5 p-6 rounded-xl border-l-4 border-red-400">
+                                <h4 class="font-bold text-red-600 dark:text-red-400 mb-3 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">insights</span>
+                                    Nuestro Enfoque
+                                </h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Análisis exhaustivo de vulnerabilidades</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Evaluación de impacto empresarial</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Desarrollo de planes de continuidad</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-red-400 mt-1">•</span>
+                                        <span class="text-lead/80 dark:text-gray-300">Capacitación y simulacros</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800">
+                                <h4 class="font-bold text-lead dark:text-white mb-4">¿Necesitas una evaluación de riesgos?</h4>
+                                <button class="relative overflow-hidden w-full md:w-auto bg-gradient-to-r from-primary to-red-500 hover:from-red-500 hover:to-primary text-white px-8 py-3.5 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/30 flex items-center justify-center gap-3 group">
+                        <span class="relative z-10">Empecemos</span>
+                        <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform relative z-10">arrow_forward</span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gestión Corporativa Modal -->
+            <div id="gestion-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                    <div class="relative p-8">
+                        <button onclick="closeModal('gestion-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-red-400">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/20 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-4xl text-red-500 dark:text-red-400">corporate_fare</span>
+                            </div>
+                            <a href="#" class="text-2xl font-bold text-lead dark:text-white hover:text-primary transition-colors">SAFE<span class="text-primary">CORP</span> PERÚ</a> Corporativa</h3>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <p class="text-lead/80 dark:text-gray-300 leading-relaxed">
+                                Optimizamos tus procesos corporativos para alcanzar la máxima eficiencia operativa, impulsando la innovación y el crecimiento sostenible de tu negocio.
+                            </p>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-red-50/50 dark:bg-red-900/3 p-4 rounded-lg">
+                                    <div class="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-800/10 flex items-center justify-center text-red-500 dark:text-red-400 mb-3">
+                                        <span class="material-symbols-outlined">trending_up</span>
+                                    </div>
+                                    <h4 class="font-bold text-lead dark:text-white mb-1">Optimización</h4>
+                                    <p class="text-sm text-lead/70 dark:text-gray-400">Mejora continua de procesos internos</p>
+                                </div>
+                                <div class="bg-red-50/50 dark:bg-red-900/3 p-4 rounded-lg">
+                                    <div class="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-800/10 flex items-center justify-center text-red-500 dark:text-red-400 mb-3">
+                                        <span class="material-symbols-outlined">auto_awesome</span>
+                                    </div>
+                                    <h4 class="font-bold text-lead dark:text-white mb-1">Innovación</h4>
+                                    <p class="text-sm text-lead/70 dark:text-gray-400">Soluciones tecnológicas de vanguardia</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800">
+                                <h4 class="font-bold text-lead dark:text-white mb-4">¿Listo para transformar tu empresa?</h4>
+                                <button class="relative overflow-hidden w-full md:w-auto bg-gradient-to-r from-primary to-red-500 hover:from-red-500 hover:to-primary text-white px-8 py-3.5 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/30 flex items-center justify-center gap-3 group">
+                        <span class="relative z-10">Empecemos</span>
+                        <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform relative z-10">arrow_forward</span>
+                        <span class="absolute inset-0 bg-gradient-to-r from-primary/0 via-white/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Quiénes Somos -->
+<section class="py-12 sm:py-16 bg-gradient-to-br from-white via-soft-gray/5 to-soft-gray/10 dark:from-background-dark dark:via-gray-900/40 dark:to-gray-900/60 relative overflow-hidden">
+    <!-- Elementos decorativos -->
+    <div class="absolute -top-20 -right-20 w-72 h-72 sm:w-[500px] sm:h-[500px] bg-gradient-to-br from-primary/20 to-red-200/80 dark:to-red-900/30 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-tr from-primary/30 to-red-100/80 dark:to-red-900/20 rounded-full blur-3xl -z-10"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-48 sm:h-80 bg-gradient-to-r from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/5 rounded-full blur-3xl -z-20"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative">
+        <div class="text-center mb-12 sm:mb-16">
+            <span class="inline-block bg-primary/5 text-primary px-6 py-2 rounded-full text-sm font-bold tracking-widest mb-6 border border-primary/20">NUESTRA EMPRESA</span>
+            <h2 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-lead dark:text-white tracking-tight">Quiénes Somos</h2>
+            <div class="h-1.5 w-24 bg-primary rounded-full mx-auto mt-6"></div>
+        </div>
+        
+        <!-- Sección Acerca de Nosotros -->
+        <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-24 sm:mb-32">
+            <div class="order-2 lg:order-1 space-y-8">
+                <div class="bg-white/90 dark:bg-gray-900/70 p-5 md:p-8 rounded-2xl shadow-lg border border-red-50/40 dark:border-white/5 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 relative overflow-hidden group backdrop-blur-sm">
+                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-primary/3 rounded-full group-hover:bg-primary/5 transition-all duration-500"></div>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-lead dark:text-white mb-6 relative pl-4 border-l-4 border-primary">
+                        Acerca de Nosotros
+                    </h3>
+                    <div class="space-y-6">
+                        <p class="text-base md:text-lg text-lead/80 dark:text-gray-300 leading-relaxed break-words">
+                            <span class="text-primary font-bold">SAFECORP</span> es una empresa con más de <span class="text-primary font-bold">10 años de experiencia</span> en la comercialización de productos y capacitaciones en seguridad industrial. 
+                        </p>
+                        <p class="text-base md:text-lg text-lead/80 dark:text-gray-300 leading-relaxed break-words">
+                            Nuestro principal objetivo es ofrecer productos vanguardistas de la mejor calidad, de marcas líderes y certificados por organismos nacionales e internacionales, asegurando así la <span class="font-bold">integridad física de los usuarios</span> de nuestros productos.
+                        </p>
+                        <div class="bg-gradient-to-r from-primary/10 to-white/30 dark:from-primary/20 dark:to-white/5 p-4 sm:p-6 rounded-lg border-l-4 border-primary shadow-sm hover:shadow-md transition-all duration-300 backdrop-blur-sm">
+                            <p class="text-lead dark:text-gray-200 italic">
+                                "Comprometidos con el cumplimiento de todas las exigencias legales y normativas del sector."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid sm:grid-cols-2 gap-6 relative z-10">
+                    <div class="bg-white/90 dark:bg-gray-900/60 p-6 rounded-xl border border-red-100/40 dark:border-white/5 hover:border-primary/30 hover:shadow-md transition-all duration-300 group backdrop-blur-sm">
+                        <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center text-primary mb-4">
+                            <span class="material-symbols-outlined text-2xl">groups</span>
+                        </div>
+                        <h4 class="font-bold text-lead dark:text-white mb-2">Equipo Especializado</h4>
+                        <p class="text-sm text-lead/70 dark:text-gray-400">Profesionales altamente calificados en seguridad industrial.</p>
+                    </div>
+                    <div class="bg-white/90 dark:bg-gray-900/60 p-6 rounded-xl border border-red-100/40 dark:border-white/5 hover:border-primary/30 hover:shadow-md transition-all duration-300 group backdrop-blur-sm">
+                        <div class="w-12 h-12 rounded-lg bg-primary/5 flex items-center justify-center text-primary mb-4">
+                            <span class="material-symbols-outlined text-2xl">verified_user</span>
+                        </div>
+                        <h4 class="font-bold text-lead dark:text-white mb-2">Certificaciones</h4>
+                        <p class="text-sm text-lead/70 dark:text-gray-400">Productos avalados por estándares internacionales.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="order-1 lg:order-2 relative mt-4 -ml-0.25 sm:ml-0">
+                <!-- Galería de Imágenes -->
+                <div class="grid grid-cols-2 gap-4 mb-2">
+                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5 max-w-[calc(100%-2px)] max-h-[calc(100%-2px)]" style='background-image: url("imagen2.png")'></div>
+                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5 max-w-[calc(100%-2px)] max-h-[calc(100%-2px)]" style='background-image: url("imagen3.png")'></div>
+                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5 max-w-[calc(100%-2px)] max-h-[calc(100%-2px)]" style='background-image: url("imagen4.png")'></div>
+                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5 max-w-[calc(100%-2px)] max-h-[calc(100%-2px)]" style='background-image: url("imagen5.png")'></div>
+                </div>
+                
+                <!-- Imagen Principal -->
+                <div class="relative">
+                    <div class="aspect-video bg-center bg-cover rounded-2xl shadow-lg transform rotate-1 hover:rotate-0 transition-all duration-500 w-[98%]" style='background-image: url("imagen6.png")'></div>
+                    <div class="absolute -bottom-4 right-2 sm:-right-4 w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-br from-primary to-red-400 hidden sm:flex flex-col items-center justify-center rounded-xl shadow-lg p-3 text-center z-10">
+                        <span class="text-2xl font-black text-white">10+</span>
+                        <span class="text-white font-bold text-xs leading-tight">Años de Experiencia</span>
+                        <div class="w-8 h-1 bg-white/70 rounded-full my-1"></div>
+                    </div>
+                    <div class="absolute -top-4 left-2 sm:-left-4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-white to-red-50 dark:from-gray-900 dark:to-red-900/30 rounded-xl shadow-lg hidden sm:flex items-center justify-center z-10 border-2 border-red-100 dark:border-red-900/10">
+                        <span class="text-primary text-2xl font-black">50+</span>
+                    </div>
+                    <!-- Elemento decorativo rojo -->
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nuestro Compromiso -->
+        <div class="bg-gradient-to-r from-primary/5 via-red-50/20 to-primary/5 dark:from-red-900/10 dark:via-red-900/5 dark:to-red-900/10 rounded-3xl p-4 sm:p-10 mb-12 sm:mb-24 border border-red-100/40 dark:border-red-900/15 relative overflow-hidden">
+            <!-- Elemento decorativo -->
+            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/3 rounded-full blur-3xl -z-10"></div>
+            <div class="max-w-3xl mx-auto text-center">
+                <h3 class="text-2xl sm:text-3xl font-bold text-lead dark:text-white mb-6">Nuestro Compromiso</h3>
+                <p class="text-base sm:text-xl text-lead/80 dark:text-gray-300 leading-relaxed mb-8">
+                    En SAFECORP ofrecemos un servicio personalizado de primera calidad, con soluciones integrales adaptadas a cada necesidad, asegurando la máxima satisfacción de nuestros clientes.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center px-2 sm:px-0">
+                    <div class="flex items-center gap-2 bg-white dark:bg-white/5 px-4 py-2 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-primary"></span>
+                        <span class="text-sm font-bold">Capacitación Continua</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white dark:bg-white/5 px-4 py-2 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-primary"></span>
+                        <span class="text-sm font-bold">Soporte 24/7</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white dark:bg-white/5 px-4 py-2 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-primary"></span>
+                        <span class="text-sm font-bold">Soluciones a Medida</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visión, Misión y Valores -->
+        <div class="mb-20">
+            <div class="text-center mb-12 sm:mb-16">
+                <span class="inline-block bg-primary/5 text-primary px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-widest mb-4">NUESTROS PILARES</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-lead dark:text-white tracking-tight">Visión, Misión y Valores</h2>
+                <div class="h-1.5 w-20 bg-primary rounded-full mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Visión -->
+                <div class="group bg-white dark:bg-white/5 p-6 sm:p-8 rounded-2xl shadow-lg border border-soft-gray/50 dark:border-white/10 hover:border-primary/20 dark:hover:border-primary/30 transition-all">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-4 sm:mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-3xl sm:text-4xl">visibility</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-lead dark:text-white mb-4">Visión</h3>
+                    <p class="text-lead/70 dark:text-gray-400 leading-relaxed">
+                        Ser una empresa líder en la comercialización de productos y capacitaciones en seguridad industrial y salud ocupacional, generando soluciones de valor compartido con nuestros clientes.
+                    </p>
+                </div>
+
+                <!-- Misión -->
+                <div class="group bg-white dark:bg-white/5 p-6 sm:p-8 rounded-2xl shadow-lg border border-soft-gray/50 dark:border-white/10 hover:border-primary/20 dark:hover:border-primary/30 transition-all">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-4 sm:mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-3xl sm:text-4xl">target</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-lead dark:text-white mb-4">Misión</h3>
+                    <p class="text-lead/70 dark:text-gray-400 leading-relaxed">
+                        Comercializar productos y brindar capacitaciones en seguridad industrial, buscando la máxima satisfacción de nuestros clientes mediante prácticas innovadoras y valor agregado constante.
+                    </p>
+                </div>
+
+                <!-- Valores -->
+                <div class="group bg-white dark:bg-white/5 p-6 sm:p-8 rounded-2xl shadow-lg border border-soft-gray/50 dark:border-white/10 hover:border-primary/20 dark:hover:border-primary/30 transition-all">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-primary/5 flex items-center justify-center text-primary mb-4 sm:mb-6 group-hover:bg-primary group-hover:text-white transition-all">
+                        <span class="material-symbols-outlined text-3xl sm:text-4xl">diversity_3</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-lead dark:text-white mb-4">Valores</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2">
+                            <span class="text-primary mt-1">•</span>
+                            <span class="text-lead/70 dark:text-gray-400"><span class="font-bold">Ética:</span> Actuamos con honestidad y transparencia.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-primary mt-1">•</span>
+                            <span class="text-lead/70 dark:text-gray-400"><span class="font-bold">Compromiso:</span> Atendemos con puntualidad y orden.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-primary mt-1">•</span>
+                            <span class="text-lead/70 dark:text-gray-400"><span class="font-bold">Calidad:</span> Productos superiores, clientes satisfechos.</span>
+                        </li>
+                    </ul>
+                </div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-lead text-white py-20">
+<div class="max-w-7xl mx-auto px-6 lg:px-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-xl font-extrabold tracking-tighter uppercase">Safecorp Perú</span>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                        Liderando el futuro de la seguridad corporativa en el mercado peruano a través de la innovación continua.
+                    </p>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="font-black text-sm uppercase tracking-widest text-primary">Navegación</h4>
+<ul class="flex flex-col gap-3 text-sm text-gray-400 font-bold">
+<li><a class="hover:text-white transition-colors" href="home.html">Inicio</a></li>
+<li><a class="hover:text-white transition-colors" href="catalogo.html">Productos y Servicios</a></li>
+<li><a class="hover:text-white transition-colors" href="compromisos.html">Compromisos</a></li>
+<li><a class="hover:text-white transition-colors" href="contacto.html">Contáctanos</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="font-black text-sm uppercase tracking-widest text-primary">Legal</h4>
+<ul class="flex flex-col gap-3 text-sm text-gray-400 font-bold">
+<li><a href="#" onclick="openModal('terms-modal'); return false;" class="hover:text-white transition-colors">Términos y Condiciones</a></li>
+<li><a href="#" onclick="openModal('privacy-modal'); return false;" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+<li><a href="#" onclick="openModal('ethics-modal'); return false;" class="hover:text-white transition-colors">Cumplimiento Ético</a></li>
+</ul>
+</div>
+
+<!-- Modal de Términos y Condiciones -->
+<div id="terms-modal" class="fixed inset-0 bg-black/70 z-50 hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+        <div class="p-6 sm:p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-lead dark:text-white">Términos y Condiciones</h3>
+                <button onclick="closeModal('terms-modal')" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="prose dark:prose-invert max-w-none">
+                <h4>1. Aceptación de los Términos</h4>
+                <p class="text-gray-600 dark:text-gray-300">Al acceder y utilizar los servicios de SAFECORP PERÚ, usted acepta estar sujeto a estos términos y condiciones de uso.</p>
+                
+                <h4 class="mt-6">2. Uso del Sitio Web</h4>
+                <p class="text-gray-600 dark:text-gray-300">El contenido de este sitio web es solo para fines informativos. No se garantiza la exactitud ni la integridad de la información proporcionada.</p>
+                
+                <h4 class="mt-6">3. Propiedad Intelectual</h4>
+                <p class="text-gray-600 dark:text-gray-300">Todo el contenido, incluyendo textos, imágenes, logotipos y diseños, es propiedad exclusiva de SAFECORP PERÚ y está protegido por las leyes de propiedad intelectual.</p>
+                
+                <h4 class="mt-6">4. Limitación de Responsabilidad</h4>
+                <p class="text-gray-600 dark:text-gray-300">SAFECORP PERÚ no será responsable por daños directos, indirectos, incidentales o consecuentes que resulten del uso o la imposibilidad de uso de este sitio web.</p>
+                
+                <h4 class="mt-6">5. Modificaciones</h4>
+                <p class="text-gray-600 dark:text-gray-300">Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios entrarán en vigor inmediatamente después de su publicación en el sitio.</p>
+            </div>
+            <div class="mt-8 flex justify-end">
+                <button onclick="closeModal('terms-modal')" class="px-6 py-2.5 bg-primary text-white rounded-lg font-medium hover:bg-red-600 transition-colors">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Política de Privacidad -->
+<div id="privacy-modal" class="fixed inset-0 bg-black/70 z-50 hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+        <div class="p-6 sm:p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-lead dark:text-white">Política de Privacidad</h3>
+                <button onclick="closeModal('privacy-modal')" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="prose dark:prose-invert max-w-none">
+                <h4>1. Información que Recopilamos</h4>
+                <p class="text-gray-600 dark:text-gray-300">Recopilamos información personal que usted nos proporciona voluntariamente al registrarse, realizar compras o contactarnos. Esto puede incluir nombre, correo electrónico, dirección y número de teléfono.</p>
+                
+                <h4 class="mt-6">2. Uso de la Información</h4>
+                <p class="text-gray-600 dark:text-gray-300">Utilizamos su información para procesar transacciones, mejorar nuestros servicios, comunicarnos con usted y personalizar su experiencia en nuestro sitio web.</p>
+                
+                <h4 class="mt-6">3. Protección de Datos</h4>
+                <p class="text-gray-600 dark:text-gray-300">Implementamos medidas de seguridad para proteger su información personal. Sin embargo, ninguna transmisión por Internet o almacenamiento electrónico es 100% segura.</p>
+                
+                <h4 class="mt-6">4. Cookies y Tecnologías Similares</h4>
+                <p class="text-gray-600 dark:text-gray-300">Utilizamos cookies para mejorar su experiencia en nuestro sitio. Puede configurar su navegador para rechazar todas las cookies, pero esto puede afectar la funcionalidad del sitio.</p>
+                
+                <h4 class="mt-6">5. Divulgación a Terceros</h4>
+                <p class="text-gray-600 dark:text-gray-300">No vendemos ni compartimos su información personal con terceros, excepto cuando sea necesario para proporcionar nuestros servicios o cumplir con la ley.</p>
+                
+                <h4 class="mt-6">6. Sus Derechos</h4>
+                <p class="text-gray-600 dark:text-gray-300">Usted tiene derecho a acceder, corregir o eliminar su información personal en cualquier momento. Contáctenos para ejercer estos derechos.</p>
+                
+                <h4 class="mt-6">7. Cambios en la Política</h4>
+                <p class="text-gray-600 dark:text-gray-300">Nos reservamos el derecho de actualizar esta política en cualquier momento. Le notificaremos sobre cambios significativos publicando la nueva política en este sitio.</p>
+            </div>
+            <div class="mt-8 flex justify-end">
+                <button onclick="closeModal('privacy-modal')" class="px-6 py-2.5 bg-primary text-white rounded-lg font-medium hover:bg-red-600 transition-colors">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Cumplimiento Ético -->
+<div id="ethics-modal" class="fixed inset-0 bg-black/70 z-50 hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+        <div class="p-6 sm:p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-lead dark:text-white">Cumplimiento Ético</h3>
+                <button onclick="closeModal('ethics-modal')" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="prose dark:prose-invert max-w-none">
+                <h4>1. Nuestro Compromiso</h4>
+                <p class="text-gray-600 dark:text-gray-300">En SAFECORP PERÚ nos comprometemos a mantener los más altos estándares éticos en todas nuestras operaciones y relaciones comerciales. Nuestro Código de Ética establece los principios que guían nuestro comportamiento empresarial.</p>
+                
+                <h4 class="mt-6">2. Conducta Ética</h4>
+                <p class="text-gray-600 dark:text-gray-300">Todos nuestros colaboradores están obligados a actuar con integridad, honestidad y transparencia en todas sus interacciones, tanto internas como externas. No toleramos ninguna forma de corrupción, soborno o comportamiento fraudulento.</p>
+                
+                <h4 class="mt-6">3. Cumplimiento Legal</h4>
+                <p class="text-gray-600 dark:text-gray-300">Nos comprometemos a cumplir con todas las leyes y regulaciones aplicables en los países donde operamos, incluyendo leyes laborales, ambientales, de competencia y protección de datos.</p>
+                
+                <h4 class="mt-6">4. Confidencialidad</h4>
+                <p class="text-gray-600 dark:text-gray-300">Protegemos la información confidencial de nuestros clientes, proveedores y empleados. Solo compartimos información cuando sea necesario y con las debidas salvaguardas de seguridad.</p>
+                
+                <h4 class="mt-6">5. Denuncia de Irregularidades</h4>
+                <p class="text-gray-600 dark:text-gray-300">Hemos establecido canales seguros y confidenciales para que empleados, clientes y proveedores puedan reportar cualquier comportamiento inapropiado o sospechoso sin temor a represalias.</p>
+                
+                <h4 class="mt-6">6. Responsabilidad Social</h4>
+                <p class="text-gray-600 dark:text-gray-300">Nos esforzamos por ser un ciudadano corporativo responsable, contribuyendo al desarrollo sostenible de las comunidades donde operamos y minimizando nuestro impacto ambiental.</p>
+                
+                <h4 class="mt-6">7. Capacitación Continua</h4>
+                <p class="text-gray-600 dark:text-gray-300">Proporcionamos capacitación regular a nuestro personal sobre estándares éticos, cumplimiento normativo y mejores prácticas para garantizar que todos comprendan y cumplan con nuestras políticas.</p>
+                
+                <h4 class="mt-6">8. Monitoreo y Cumplimiento</h4>
+                <p class="text-gray-600 dark:text-gray-300">Realizamos auditorías periódicas para garantizar el cumplimiento de nuestras políticas éticas y tomamos medidas correctivas cuando sea necesario.</p>
+            </div>
+            <div class="mt-8 flex justify-end">
+                <button onclick="closeModal('ethics-modal')" class="px-6 py-2.5 bg-primary text-white rounded-lg font-medium hover:bg-red-600 transition-colors">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="font-black text-sm uppercase tracking-widest text-primary">Contacto</h4>
+<ul class="flex flex-col gap-4 text-sm text-gray-400 font-bold">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">call</span>
+                            +51 994 999 162
+                        </li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">mail</span>
+                            wgarcia@safecorp-peru.com
+                        </li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-gray-500 font-bold uppercase tracking-widest">
+                    &copy; 2026 SAFECORP PERÚ. Todos los derechos reservados.
+                </p>
+<div class="flex gap-6">
+<a href="home.html" class="block w-12 h-12 hover:opacity-80 transition-opacity">
+    <img src="logo.png" alt="Safecorp Logo" class="w-full h-full object-contain">
+</a>
+</div>
+</div>
+</div>
+</footer>
+    <script>
+        // Función para abrir el modal
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Evitar scroll del fondo
+        }
+        
+        // Función para cerrar el modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        }
+        
+        // Cerrar al hacer clic fuera del contenido del modal
+        window.onclick = function(event) {
+            if (event.target.classList.contains('bg-black/70')) {
+                event.target.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Cerrar con tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('[id$="-modal"]').forEach(modal => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+
+        // Cerrar modal al hacer clic fuera del contenido
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('bg-black/70')) {
+                event.target.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved user preference, if any, on load of the website
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', String(!expanded));
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Close menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        // Control del splash screen
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mostrar el contenido principal después de 1 segundo
+            setTimeout(function() {
+                const splashScreen = document.getElementById('splash-screen');
+                if (splashScreen) {
+                    // Desvanecer el splash screen
+                    splashScreen.style.opacity = '0';
+                    
+                    // Mostrar el contenido principal
+                    document.body.classList.add('loaded');
+                    
+                    // Eliminar el splash screen después de la animación
+                    setTimeout(() => {
+                        splashScreen.style.display = 'none';
+                    }, 300);
+                }
+            }, 1000); // Reducido a 1 segundo
+        });
+    </script>
+</body>
+</html>
