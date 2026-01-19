@@ -92,6 +92,38 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        
+        /* Scroll Animations */
+        @keyframes slideUpFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            animation: slideUpFadeIn 0.8s ease-out forwards;
+        }
+
+        /* Staggered delays for animations */
+        .animate-delay-100 { animation-delay: 0.1s; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-300 { animation-delay: 0.3s; }
+        .animate-delay-400 { animation-delay: 0.4s; }
+        .animate-delay-500 { animation-delay: 0.5s; }
+        .animate-delay-600 { animation-delay: 0.6s; }
+        .animate-delay-700 { animation-delay: 0.7s; }
+        .animate-delay-800 { animation-delay: 0.8s; }
         .soft-shadow {
             box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
         }
@@ -120,15 +152,16 @@
         }
         
         #splash-logo {
-            width: 180px;  /* Tamaño para móviles */
+            width: 220px;  /* Tamaño ligeramente más pequeño para móviles */
             height: auto;
             animation: pulse 1.5s infinite;
-            transition: transform 0.3s ease;
+            transform: scale(1.3);  /* Escala ligeramente reducida */
         }
         
         @media (min-width: 768px) {
             #splash-logo {
-                width: 250px;  /* Tamaño más grande para escritorio */
+                width: 300px;  /* Tamaño ligeramente más pequeño para escritorio */
+                transform: scale(1.3);  /* Escala ligeramente reducida */
             }
         }
         
@@ -262,7 +295,7 @@
                 <div class="w-full">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 px-2 sm:px-4 lg:px-6 max-w-7xl mx-auto">
                         <!-- Producto 1 -->
-                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="openProductModal('modal-producto-1')">
+                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer animate-on-scroll animate-delay-100" onclick="openProductModal('modal-producto-1')">
                             <div class="mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden aspect-square w-full relative">
                                 <img src="catalogo/producto1.png" alt="Protección de Cabeza" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -290,7 +323,7 @@
                         </div>
 
                         <!-- Producto 2 -->
-                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="openProductModal('modal-producto-2')">
+                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer animate-on-scroll animate-delay-200" onclick="openProductModal('modal-producto-2')">
                             <div class="mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden aspect-square w-full relative">
                                 <img src="catalogo/producto2.png" alt="Protección Visual" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -318,7 +351,7 @@
                         </div>
 
                         <!-- Producto 3 -->
-                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="openProductModal('modal-producto-3')">
+                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer animate-on-scroll animate-delay-300" onclick="openProductModal('modal-producto-3')">
                             <div class="mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden aspect-square w-full relative">
                                 <img src="catalogo/producto3.png" alt="Protección Auditiva" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -655,7 +688,7 @@
                 <div class="w-full mt-4 sm:mt-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
                         <!-- Producto 4 -->
-                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="openProductModal('modal-producto-4')">
+                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer animate-on-scroll animate-delay-400" onclick="openProductModal('modal-producto-4')">
                             <div class="mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden aspect-square w-full relative">
                                 <img src="catalogo/producto4.png" alt="Protección Respiratoria" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -683,7 +716,7 @@
                         </div>
 
                         <!-- Producto 5 -->
-                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="openProductModal('modal-producto-5')">
+                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer animate-on-scroll animate-delay-500" onclick="openProductModal('modal-producto-5')">
                             <div class="mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden aspect-square w-full relative">
                                 <img src="catalogo/producto5.png" alt="Protección de Manos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -711,7 +744,7 @@
                         </div>
 
                         <!-- Producto 6 -->
-                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="openProductModal('modal-producto-6')">
+                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer animate-on-scroll animate-delay-600" onclick="openProductModal('modal-producto-6')">
                             <div class="mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden aspect-square w-full relative">
                                 <img src="catalogo/producto6.png" alt="Protección de Pies" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1057,7 +1090,7 @@
                 <div class="w-full mt-4 sm:mt-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
                         <!-- Producto 7 -->
-                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="openProductModal('modal-producto-7')">
+                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer animate-on-scroll animate-delay-100" onclick="openProductModal('modal-producto-7')">
                             <div class="mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden aspect-square w-full relative">
                                 <img src="catalogo/producto7.png" alt="Ropa de Trabajo y Corporativa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1189,7 +1222,7 @@
                 </div>
 
                         <!-- Producto 8 -->
-                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="openProductModal('modal-producto-8')">
+                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer animate-on-scroll animate-delay-200" onclick="openProductModal('modal-producto-8')">
                             <div class="mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden aspect-square w-full relative">
                                 <img src="catalogo/producto8.png" alt="Trabajos en Altura" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1338,7 +1371,7 @@
                 </div>
 
                         <!-- Producto 9 -->
-                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="openProductModal('modal-producto-9')">
+                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer animate-on-scroll animate-delay-300" onclick="openProductModal('modal-producto-9')">
                             <div class="mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden aspect-square w-full relative">
                                 <img src="catalogo/producto9.png" alt="Seguridad Vial y Señalización" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1467,7 +1500,7 @@
                 <div class="w-full mt-4 sm:mt-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
                         <!-- Producto 10 -->
-                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="openProductModal('modal-producto-10')">
+                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer animate-on-scroll animate-delay-400" onclick="openProductModal('modal-producto-10')">
                             <div class="mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden aspect-square w-full relative">
                                 <img src="catalogo/producto10.png" alt="Emergencia y Primeros Auxilios" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1579,7 +1612,7 @@
                 </div>
 
                         <!-- Producto 11 -->
-                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer" onclick="openProductModal('modal-producto-11')">
+                        <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-all duration-300 cursor-pointer animate-on-scroll animate-delay-500" onclick="openProductModal('modal-producto-11')">
                             <div class="mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden aspect-square w-full relative">
                                 <img src="catalogo/producto11.png" alt="Herramientas y Otros" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1720,7 +1753,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
             <!-- Servicio 1 -->
-            <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-transform duration-300 cursor-pointer" onclick="openProductModal('modal-servicio-1')">
+            <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-transform duration-300 cursor-pointer animate-on-scroll animate-delay-100" onclick="openProductModal('modal-servicio-1')">
                 <div class="mb-4 rounded-xl overflow-hidden aspect-square w-full max-w-[200px] mx-auto relative">
                     <img src="catalogo/servicio1.png" alt="Capacitación en Seguridad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1748,7 +1781,7 @@
             </div>
 
             <!-- Servicio 2 -->
-            <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-transform duration-300 cursor-pointer" onclick="openProductModal('modal-servicio-2')">
+            <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-transform duration-300 cursor-pointer animate-on-scroll animate-delay-200" onclick="openProductModal('modal-servicio-2')">
                 <div class="mb-4 rounded-xl overflow-hidden aspect-square w-full max-w-[200px] mx-auto relative">
                     <img src="catalogo/servicio2.png" alt="Asesoría en Seguridad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1776,7 +1809,7 @@
             </div>
 
             <!-- Servicio 3 -->
-            <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-transform duration-300 cursor-pointer" onclick="openProductModal('modal-servicio-3')">
+            <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-transform duration-300 cursor-pointer animate-on-scroll animate-delay-300" onclick="openProductModal('modal-servicio-3')">
                 <div class="mb-4 rounded-xl overflow-hidden aspect-square w-full max-w-[200px] mx-auto relative">
                     <img src="catalogo/servicio3.png" alt="Regulaciones de Seguridad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1804,7 +1837,7 @@
             </div>
 
             <!-- Servicio 4 -->
-            <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-transform duration-300 cursor-pointer" onclick="openProductModal('modal-servicio-4')">
+            <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-transform duration-300 cursor-pointer animate-on-scroll animate-delay-100" onclick="openProductModal('modal-servicio-4')">
                 <div class="mb-4 rounded-xl overflow-hidden aspect-square w-full max-w-[200px] mx-auto relative">
                     <img src="catalogo/servicio4.png" alt="Seguridad con Maquinaria" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -1832,7 +1865,7 @@
             </div>
 
             <!-- Servicio 5 -->
-            <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-transform duration-300 cursor-pointer" onclick="openProductModal('modal-servicio-5')">
+            <div class="bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm p-5 sm:p-6 rounded-2xl shadow-xl border border-red-100/60 dark:border-white/10 group hover:-translate-y-1 transition-transform duration-300 cursor-pointer animate-on-scroll animate-delay-200" onclick="openProductModal('modal-servicio-5')">
                 <div class="mb-4 rounded-xl overflow-hidden aspect-square w-full max-w-[200px] mx-auto relative">
                     <img src="catalogo/servicio5.png" alt="Seguridad en Oficinas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -2646,6 +2679,35 @@
                 document.body.style.overflow = 'auto';
             });
         }
+    });
+</script>
+
+<!-- Scroll Animation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all elements with the animate-on-scroll class
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        // Create an Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add 'visible' class when element is in viewport
+                    entry.target.classList.add('visible');
+                    
+                    // Optional: Unobserve after animation plays
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1, // Trigger when 10% of the element is visible
+            rootMargin: '0px 0px -50px 0px' // Start the animation a bit before the element is in view
+        });
+
+        // Observe each element
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
     });
 </script>
 

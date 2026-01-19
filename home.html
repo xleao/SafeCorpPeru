@@ -34,6 +34,73 @@
         }
     </script>
 <style>
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Scroll Animations */
+        @keyframes slideUpFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            animation: slideUpFadeIn 0.8s ease-out forwards;
+        }
+
+        /* Add staggered delays for each image */
+        .animate-on-scroll.delay-100 { animation-delay: 0.1s; }
+        .animate-on-scroll.delay-200 { animation-delay: 0.2s; }
+        .animate-on-scroll.delay-300 { animation-delay: 0.3s; }
+        .animate-on-scroll.delay-400 { animation-delay: 0.4s; }
+        .animate-on-scroll.delay-500 { animation-delay: 0.5s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-scale-in {
+            opacity: 0;
+            animation: scaleIn 1s ease-out forwards;
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
@@ -65,15 +132,16 @@
         }
         
         #splash-logo {
-            width: 180px;  /* Tamaño más grande para móviles */
+            width: 220px;  /* Tamaño ligeramente más pequeño para móviles */
             height: auto;
             animation: pulse 1.5s infinite;
-            transition: transform 0.3s ease;
+            transform: scale(1.3);  /* Escala ligeramente reducida */
         }
         
         @media (min-width: 768px) {
             #splash-logo {
-                width: 250px;  /* Tamaño más grande para escritorio */
+                width: 300px;  /* Tamaño ligeramente más pequeño para escritorio */
+                transform: scale(1.3);  /* Escala ligeramente reducida */
             }
         }
         
@@ -150,36 +218,38 @@
 </div>
 <!-- Hero Section -->
 <section class="relative overflow-hidden pt-16 pb-24 sm:pt-20 sm:pb-32 lg:pt-6 lg:pb-48">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-<div class="grid lg:grid-cols-2 gap-16 items-center">
-<div class="flex flex-col gap-8">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 text-primary w-fit">
-<span class="text-xs font-bold tracking-widest uppercase">Líderes en el Mercado Peruano</span>
-</div>
-<h1 class="text-3xl sm:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-lead dark:text-white">
-                        Innovación y <span class="text-primary">Seguridad</span> para tu Empresa
-                    </h1>
-<p class="text-base sm:text-lg lg:text-xl text-lead/70 dark:text-gray-400 max-w-lg leading-relaxed font-bold">
-                        Soluciones tecnológicas modernas y consultoría corporativa de alto impacto. Redefiniendo el estándar de protección empresarial.
-                    </p>
-<div class="flex flex-wrap gap-4 pt-4">
-<a href="catalogo.html#nuestros-productos" class="bg-primary hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-bold soft-shadow flex items-center gap-2 transition-all">
-                            Ver Soluciones
-                            <span class="material-symbols-outlined">arrow_forward</span>
-</a>
-<a href="contacto.html" class="bg-soft-gray dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-lead dark:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-bold transition-all inline-flex items-center">
-                            Solicitar Auditoría
-                        </a>
-</div>
-</div>
-<div class="relative">
-<div class="aspect-square bg-center bg-cover rounded-2xl soft-shadow" data-alt="Modern server room with red fiber optic cables" style='background-image: url("imagen1.png");'>
-</div>
-<!-- Decorative element -->
-<div class="absolute -bottom-40 -left-20 sm:-left-40 w-72 h-72 sm:w-[40rem] sm:h-[40rem] bg-gradient-to-tr from-primary/10 to-red-400/5 rounded-full blur-3xl -z-10"></div>
-</div>
-</div>
-</div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="flex flex-col gap-8 hero-content">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 text-primary w-fit animate-fade-in-up" style="animation-delay: 0.2s">
+                    <span class="text-xs font-bold tracking-widest uppercase">Líderes en el Mercado Peruano</span>
+                </div>
+                <h1 class="text-3xl sm:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-lead dark:text-white animate-fade-in-up" style="animation-delay: 0.3s">
+                    Innovación y <span class="text-primary">Seguridad</span> para tu Empresa
+                </h1>
+                <p class="text-base sm:text-lg lg:text-xl text-lead/70 dark:text-gray-400 max-w-lg leading-relaxed font-bold animate-fade-in-up" style="animation-delay: 0.4s">
+                    Soluciones tecnológicas modernas y consultoría corporativa de alto impacto. Redefiniendo el estándar de protección empresarial.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4 animate-fade-in-up" style="animation-delay: 0.5s">
+                    <a href="catalogo.html#nuestros-productos" class="bg-primary hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-bold soft-shadow flex items-center gap-2 transition-all">
+                        Ver Soluciones
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                    <a href="contacto.html" class="bg-soft-gray dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-lead dark:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-bold transition-all inline-flex items-center">
+                        Solicitar Auditoría
+                    </a>
+                </div>
+            </div>
+            <div class="relative animate-scale-in" style="animation-delay: 0.6s">
+                <div class="aspect-square bg-center bg-cover rounded-2xl soft-shadow transform transition-all duration-700" 
+                     data-alt="Modern server room with red fiber optic cables" 
+                     style='background-image: url("imagen1.png"); opacity: 0; animation: fadeInUp 0.8s ease-out 0.6s forwards;'>
+                </div>
+                <!-- Decorative element -->
+                <div class="absolute -bottom-40 -left-20 sm:-left-40 w-72 h-72 sm:w-[40rem] sm:h-[40rem] bg-gradient-to-tr from-primary/10 to-red-400/5 rounded-full blur-3xl -z-10" style="opacity: 0; animation: fadeIn 1s ease-out 0.8s forwards;"></div>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- Stats Bar -->
 <section class="bg-soft-gray dark:bg-white/5 py-12">
@@ -487,10 +557,10 @@
             <div class="order-1 lg:order-2 relative mt-4 -ml-0.25 sm:ml-0">
                 <!-- Galería de Imágenes -->
                 <div class="grid grid-cols-2 gap-4 mb-2">
-                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5 max-w-[calc(100%-2px)] max-h-[calc(100%-2px)]" style='background-image: url("imagen2.png")'></div>
-                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5 max-w-[calc(100%-2px)] max-h-[calc(100%-2px)]" style='background-image: url("imagen3.png")'></div>
-                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5 max-w-[calc(100%-2px)] max-h-[calc(100%-2px)]" style='background-image: url("imagen4.png")'></div>
-                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5 max-w-[calc(100%-2px)] max-h-[calc(100%-2px)]" style='background-image: url("imagen5.png")'></div>
+                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5 max-w-[calc(100%-2px)] max-h-[calc(100%-2px)] animate-on-scroll delay-100" style='background-image: url("imagen2.png")'></div>
+                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5 max-w-[calc(100%-2px)] max-h-[calc(100%-2px)] animate-on-scroll delay-200" style='background-image: url("imagen3.png")'></div>
+                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5 max-w-[calc(100%-2px)] max-h-[calc(100%-2px)] animate-on-scroll delay-300" style='background-image: url("imagen4.png")'></div>
+                    <div class="aspect-square bg-center bg-cover rounded-md shadow-sm transform transition-all duration-100 hover:scale-105 hover:shadow hover:shadow-primary/5 max-w-[calc(100%-2px)] max-h-[calc(100%-2px)] animate-on-scroll delay-400" style='background-image: url("imagen5.png")'></div>
                 </div>
                 
                 <!-- Imagen Principal -->
@@ -863,6 +933,34 @@
                     }, 300);
                 }
             }, 1000); // Reducido a 1 segundo
+        });
+    </script>
+    <!-- Scroll Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all elements with the animate-on-scroll class
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            // Create an Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add 'visible' class when element is in viewport
+                        entry.target.classList.add('visible');
+                        
+                        // Optional: Unobserve after animation plays
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1, // Trigger when 10% of the element is visible
+                rootMargin: '0px 0px -50px 0px' // Adjust this to start the animation a bit before the element is in view
+            });
+
+            // Observe each element
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
         });
     </script>
 </body>
