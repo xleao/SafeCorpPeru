@@ -34,11 +34,11 @@
         }
     </script>
 <style>
-        /* Animaciones */
+        /* Animaciones optimizadas - Se ejecutan una sola vez */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -46,11 +46,11 @@
             }
         }
         
-        /* Scroll Animations */
+        /* Animación de entrada */
         @keyframes slideUpFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(15px);
             }
             to {
                 opacity: 1;
@@ -60,15 +60,20 @@
 
         .animate-on-scroll {
             opacity: 0;
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            /* Eliminamos la transición para evitar parpadeos */
+            transition: none;
+            /* Aseguramos que la animación se ejecute solo una vez */
+            animation-fill-mode: forwards;
         }
 
         .animate-on-scroll.visible {
             opacity: 1;
-            animation: slideUpFadeIn 0.8s ease-out forwards;
+            animation: slideUpFadeIn 0.5s ease-out forwards;
+            /* Aseguramos que la animación se ejecute solo una vez */
+            animation-iteration-count: 1;
         }
 
-        /* Add staggered delays for each image */
+        /* Delays para animaciones escalonadas */
         .animate-on-scroll.delay-100 { animation-delay: 0.1s; }
         .animate-on-scroll.delay-200 { animation-delay: 0.2s; }
         .animate-on-scroll.delay-300 { animation-delay: 0.3s; }
@@ -83,7 +88,7 @@
         @keyframes scaleIn {
             from {
                 opacity: 0;
-                transform: scale(0.95);
+                transform: scale(0.98);
             }
             to {
                 opacity: 1;
@@ -93,12 +98,14 @@
 
         .animate-fade-in-up {
             opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
+            animation: fadeInUp 0.5s ease-out forwards;
+            animation-iteration-count: 1;
         }
 
         .animate-scale-in {
             opacity: 0;
-            animation: scaleIn 1s ease-out forwards;
+            animation: scaleIn 0.4s ease-out forwards;
+            animation-iteration-count: 1;
         }
 
         .material-symbols-outlined {
