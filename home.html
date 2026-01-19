@@ -60,17 +60,25 @@
 
         .animate-on-scroll {
             opacity: 0;
-            /* Eliminamos la transición para evitar parpadeos */
-            transition: none;
+            /* Desactivamos cualquier transición que pueda causar parpadeos */
+            transition: none !important;
             /* Aseguramos que la animación se ejecute solo una vez */
             animation-fill-mode: forwards;
+            /* Forzamos la aceleración por hardware */
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translateZ(0) scale(1.0, 1.0);
         }
 
         .animate-on-scroll.visible {
             opacity: 1;
             animation: slideUpFadeIn 0.5s ease-out forwards;
-            /* Aseguramos que la animación se ejecute solo una vez */
             animation-iteration-count: 1;
+            /* Prevenir que se repita la animación */
+            animation-duration: 0.5s !important;
+            /* Mantener el estado final */
+            animation-fill-mode: forwards !important;
         }
 
         /* Delays para animaciones escalonadas */
@@ -944,29 +952,49 @@
     </script>
     <!-- Scroll Animation Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all elements with the animate-on-scroll class
+        // Esperar a que todo el contenido esté completamente cargado
+        window.addEventListener('load', function() {
+            // Seleccionar solo los elementos que necesitan animación
             const animateElements = document.querySelectorAll('.animate-on-scroll');
             
-            // Create an Intersection Observer
+            // Crear un mapa para rastrear elementos ya animados
+            const animatedElements = new Map();
+            
+            // Configuración del observador
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Add 'visible' class when element is in viewport
-                        entry.target.classList.add('visible');
+                    // Verificar si el elemento ya ha sido animado
+                    if (entry.isIntersecting && !animatedElements.has(entry.target)) {
+                        // Marcar como animado
+                        animatedElements.set(entry.target, true);
                         
-                        // Optional: Unobserve after animation plays
+                        // Usar requestAnimationFrame para sincronizar con el renderizado del navegador
+                        requestAnimationFrame(() => {
+                            // Aplicar la clase de visibilidad
+                            entry.target.style.willChange = 'opacity, transform';
+                            entry.target.classList.add('visible');
+                            
+                            // Limpiar will-change después de la animación
+                            setTimeout(() => {
+                                entry.target.style.willChange = 'auto';
+                            }, 600); // Un poco más que la duración de la animación
+                        });
+                        
+                        // Dejar de observar el elemento
                         observer.unobserve(entry.target);
                     }
                 });
             }, {
-                threshold: 0.1, // Trigger when 10% of the element is visible
-                rootMargin: '0px 0px -50px 0px' // Adjust this to start the animation a bit before the element is in view
+                threshold: 0.01,  // Activar con solo 1% de visibilidad
+                rootMargin: '0px 0px -10% 0px', // Pequeño margen inferior
+                root: null
             });
 
-            // Observe each element
+            // Observar los elementos
             animateElements.forEach(element => {
-                observer.observe(element);
+                if (!element.classList.contains('visible')) {
+                    observer.observe(element);
+                }
             });
         });
     </script>
