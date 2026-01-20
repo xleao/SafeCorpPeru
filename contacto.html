@@ -197,7 +197,7 @@
 
     <!-- Main Contact Form -->
     <div class="lg:col-span-8 bg-red-50/50 dark:bg-blue-900/20 p-6 md:p-8 rounded-xl border border-red-100 dark:border-blue-800/40 shadow-sm">
-      <form class="space-y-6">
+      <form class="space-y-6" onsubmit="return enviarWhatsApp(event)">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="relative group">
             <label class="block text-[11px] font-bold text-primary uppercase tracking-widest mb-1.5">Nombre Completo</label>
@@ -245,6 +245,51 @@
           </button>
         </div>
       </form>
+
+      <script>
+      function enviarWhatsApp(event) {
+          event.preventDefault();
+          
+          // Obtener valores del formulario
+          const nombre = document.querySelector('input[placeholder="Ej. Juan Pérez"]').value;
+          const empresa = document.querySelector('input[placeholder="Nombre de su organización"]').value;
+          const ruc = document.querySelector('input[placeholder="Ingrese su RUC"]').value;
+          const telefono = document.querySelector('input[placeholder="+51 999 999 999"]').value;
+          const email = document.querySelector('input[type="email"]').value;
+          const asunto = document.querySelector('select').value || 'Sin asunto';
+          const mensaje = document.querySelector('textarea').value || 'Sin mensaje';
+          
+          // Validar campos requeridos
+          if (!nombre || !telefono || !email) {
+              alert('Por favor complete los campos obligatorios: Nombre, Teléfono y Correo Electrónico');
+              return false;
+          }
+          
+          // Formatear el mensaje
+          const texto = `*Nuevo mensaje de contacto*%0A%0A` +
+                       `*Nombre:* ${nombre}%0A` +
+                       `*Empresa:* ${empresa || 'No especificada'}%0A` +
+                       `*RUC:* ${ruc || 'No especificado'}%0A` +
+                       `*Teléfono:* ${telefono}%0A` +
+                       `*Email:* ${email}%0A` +
+                       `*Asunto:* ${asunto}%0A` +
+                       `*Mensaje:* ${mensaje}`;
+          
+          // Número de teléfono de la empresa (sin el + ni espacios)
+          const telefonoEmpresa = '51943836076';
+          
+          // Crear enlace de WhatsApp
+          const url = `https://wa.me/${telefonoEmpresa}?text=${texto}`;
+          
+          // Abrir enlace en una nueva pestaña
+          window.open(url, '_blank');
+          
+          // Resetear el formulario
+          event.target.reset();
+          
+          return false;
+      }
+      </script>
     </div>
   </section>
 

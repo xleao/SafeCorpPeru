@@ -240,10 +240,10 @@
                     <span class="text-xs font-bold tracking-widest uppercase">Líderes en el Mercado Peruano</span>
                 </div>
                 <h1 class="text-3xl sm:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-lead dark:text-white animate-fade-in-up" style="animation-delay: 0.3s">
-                    Innovación y <span class="text-primary">Seguridad</span> para tu Empresa
+                    Innovación, <span class="text-primary">Seguridad</span> y Soluciones Corporativas
                 </h1>
                 <p class="text-base sm:text-lg lg:text-xl text-lead/70 dark:text-gray-400 max-w-lg leading-relaxed font-bold animate-fade-in-up" style="animation-delay: 0.4s">
-                    Soluciones tecnológicas modernas y consultoría corporativa de alto impacto. Redefiniendo el estándar de protección empresarial.
+                    Productos y tecnologías con estándares internacionales. Ventas al por mayor, descuentos por volumen y marcas certificadas.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4 animate-fade-in-up" style="animation-delay: 0.5s">
                     <a href="catalogo.html#nuestros-productos" class="bg-primary hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-bold soft-shadow flex items-center gap-2 transition-all">
@@ -251,7 +251,7 @@
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
                     <a href="contacto.html" class="bg-soft-gray dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 text-lead dark:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-bold transition-all inline-flex items-center">
-                        Solicitar Auditoría
+                        Cotizar Ahora
                     </a>
                 </div>
             </div>
@@ -593,6 +593,181 @@
                     <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl -z-10"></div>
                 </div>
             </div>
+        </div>
+
+        <!-- Nuestros Clientes -->
+        <div class="py-12 sm:py-16 bg-white dark:bg-gray-900 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 text-lead dark:text-white">Nuestros Clientes</h2>
+                
+                <div class="relative w-full overflow-hidden">
+                    <div class="infinite-carousel-container">
+                        <div id="infinite-client-track" class="infinite-carousel-track" role="list" aria-live="off"></div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .infinite-carousel-container {
+                    width: 100%;
+                    overflow: hidden;
+                    position: relative;
+                    padding: 1.25rem 0;
+                }
+
+                .infinite-carousel-track {
+                    display: flex;
+                    align-items: center;
+                    will-change: transform;
+                    transform: translateX(0);
+                }
+
+                .infinite-carousel-item {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 16px; /* espacio entre ítems */
+                    flex: 0 0 auto;
+                }
+
+                .infinite-carousel-item img {
+                    height: var(--logo-height, 110px);
+                    width: auto;
+                    object-fit: contain;
+                    transition: transform 0.25s ease;
+                    pointer-events: none;
+                }
+
+                .infinite-carousel-item:hover img {
+                    transform: scale(1.06);
+                }
+
+                @media (max-width: 1024px) {
+                    .infinite-carousel-item { margin: 0 14px; }
+                    .infinite-carousel-item img { height: 95px; }
+                }
+                @media (max-width: 640px) {
+                    .infinite-carousel-item { margin: 0 10px; }
+                    .infinite-carousel-item img { height: 70px; }
+                }
+                @media (prefers-reduced-motion: reduce) {
+                    .infinite-carousel-track { transition: none !important; }
+                }
+            </style>
+
+            <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const track = document.getElementById('infinite-client-track');
+
+                const imageFilenames = [
+                    'empresa1.jpg',
+                    'empresa2.png',
+                    'empresa3.png',
+                    'empresa4.png',
+                    'empresa5.png'
+                ];
+
+                const speed = 60; // píxeles por segundo (ajusta la velocidad global)
+
+                let pool = [];
+                let lastEmitted = '';
+
+                function shuffle(array) {
+                    const a = array.slice();
+                    for (let i = a.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [a[i], a[j]] = [a[j], a[i]];
+                    }
+                    return a;
+                }
+
+                function refillPool() {
+                    pool = shuffle(imageFilenames);
+                    if (pool.length > 1 && pool[0] === lastEmitted) {
+                        [pool[0], pool[1]] = [pool[1], pool[0]];
+                    }
+                }
+
+                function nextImageSrc() {
+                    if (pool.length === 0) refillPool();
+                    let next = pool.shift();
+                    if (next === lastEmitted) {
+                        pool.push(next);
+                        next = pool.shift();
+                    }
+                    lastEmitted = next;
+                    return `clientes/${next}`;
+                }
+
+                function createItem() {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'infinite-carousel-item';
+                    const img = document.createElement('img');
+                    img.src = nextImageSrc();
+                    img.alt = 'Cliente';
+                    img.decoding = 'async';
+                    img.loading = 'eager';
+                    img.draggable = false;
+                    wrapper.appendChild(img);
+                    return wrapper;
+                }
+
+                function fillInitial() {
+                    track.innerHTML = '';
+                    const viewport = track.parentElement.getBoundingClientRect().width;
+                    const estimatedItemWidth = 200; // px (logo + margen)
+                    const minItems = Math.ceil(viewport / estimatedItemWidth) + imageFilenames.length;
+                    for (let i = 0; i < minItems; i++) {
+                        track.appendChild(createItem());
+                    }
+                }
+
+                fillInitial();
+
+                let offset = 0; // desplazamiento acumulado hacia la izquierda
+                let lastTs = performance.now();
+
+                function fullWidth(el) {
+                    const rect = el.getBoundingClientRect();
+                    const styles = getComputedStyle(el);
+                    const ml = parseFloat(styles.marginLeft) || 0;
+                    const mr = parseFloat(styles.marginRight) || 0;
+                    return rect.width + ml + mr;
+                }
+
+                function step(now) {
+                    const dt = Math.max(0, Math.min(100, now - lastTs)) / 1000; // seg, limit jitter
+                    lastTs = now;
+                    offset += speed * dt;
+
+                    let first = track.firstElementChild;
+                    while (first) {
+                        const w = fullWidth(first);
+                        if (offset >= w) {
+                            offset -= w;
+                            track.removeChild(first);
+                            track.appendChild(createItem());
+                            first = track.firstElementChild;
+                        } else {
+                            break;
+                        }
+                    }
+                    track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+                    requestAnimationFrame(step);
+                }
+
+                requestAnimationFrame(step);
+
+                window.addEventListener('resize', () => {
+                    const viewport = track.parentElement.getBoundingClientRect().width;
+                    const currentWidth = Array.from(track.children).reduce((acc, el) => acc + el.getBoundingClientRect().width, 0);
+                    if (currentWidth < viewport + 3 * 200) {
+                        const toAdd = Math.ceil((viewport + 3 * 200 - currentWidth) / 200);
+                        for (let i = 0; i < toAdd; i++) track.appendChild(createItem());
+                    }
+                });
+            });
+            </script>
         </div>
 
         <!-- Nuestro Compromiso -->
